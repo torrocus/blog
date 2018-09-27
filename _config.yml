@@ -1,8 +1,9 @@
 # Site settings
 baseurl: '/blog'
-theme: jekyll-theme-slate
+theme: minima
 url: https://torrocus.com
 
+author: torrocus
 description: >
   Full-stack developer, who loves challenges, tries to write a tech blog about
   Ruby on Rails, design patterns and application architecture.
@@ -10,3 +11,6 @@ lang: en
 title: Less is more
 
 google_analytics: 'UA-62202006-13'
+show_excerpts: true
+
+header_pages:
