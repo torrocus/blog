@@ -13,4 +13,7 @@ title: Less is more
 google_analytics: 'UA-62202006-13'
 show_excerpts: true
 
-header_pages:
+disqus:
+  shortname: torrocus
+
+# header_pages:
