@@ -11,9 +11,17 @@ lang: en
 title: Less is more
 
 google_analytics: 'UA-62202006-13'
+highlighter: rouge
 show_excerpts: true
 
 disqus:
   shortname: torrocus
 
 # header_pages:
+
+gems:
+  - jekyll-last-modified-at
+
+twitter:
+  card: summary
+  username: torrocus
