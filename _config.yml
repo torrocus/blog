@@ -19,6 +19,9 @@ disqus:
 
 # header_pages:
 
+minima:
+  date_format: '%Y-%m-%d'
+
 gems:
   - jekyll-last-modified-at
 
