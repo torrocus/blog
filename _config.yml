@@ -10,7 +10,7 @@ description: >
 lang: en
 title: Less is more
 
-google_analytics: 'UA-62202006-13'
+google_analytics: 'UA-127739651-1'
 highlighter: rouge
 show_excerpts: true
 
@@ -22,8 +22,9 @@ disqus:
 minima:
   date_format: '%Y-%m-%d'
 
-gems:
-  - jekyll-last-modified-at
+plugins:
+  - jekyll-sitemap
+  - jekyll-time-to-read
 
 twitter:
   card: summary
