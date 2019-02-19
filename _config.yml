@@ -1,14 +1,17 @@
 # Site settings
 baseurl: '/blog'
-theme: minima
-url: https://torrocus.com
+url: &url https://torrocus.com
 
+# Meta settings
 author: torrocus
 description: >
   Full-stack developer, who loves challenges, tries to write a tech blog about
   Ruby on Rails, design patterns and application architecture.
 lang: en
 title: Less is more
+
+# Theme settings
+theme: minima
 
 google_analytics: 'UA-127739651-1'
 highlighter: rouge
