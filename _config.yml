@@ -23,9 +23,12 @@ disqus:
 # header_pages:
 
 minima:
-  date_format: '%Y-%m-%d'
+  date_format: ' '
+
+permalink: /:title/
 
 plugins:
+  - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-time-to-read
 

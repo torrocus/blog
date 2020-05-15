@@ -29,6 +29,8 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.11.0)
       jekyll (~> 3.3)
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.5.0)
@@ -69,9 +71,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  jekyll-redirect-from
   jekyll-sitemap
   jekyll-time-to-read
   minima
 
 BUNDLED WITH
-   2.0.1
+   2.1.4

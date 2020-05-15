@@ -3,12 +3,13 @@ layout: post
 title: Who am I, czyli kim jestem?
 lang: pl
 excerpt: Krótka rozprawka o tym kim jestem i co robię w branży IT.
+redirect_from: /2018/09/28/whoami.html
 ---
 ## Kim naprawdę jestem?
 
 Jestem programistą, administratorem, liderem, testerem, pomysłodawcą, przedsiębiorcą.
 Jestem człowiekiem od rozwiązywania problemów, wspierając się technologiami IT.
-Mówię o sobie <strong>full stack developer</strong>.
+Mówię o sobie **full stack developer**.
 
 ```bash
 # To jak mnie widzi system.
@@ -16,7 +17,7 @@ torrocus@linux:~$ logname
 torrocus
 ```
 
-Developer w świecie IT to zazwyczaj synonim słów <strong>programista</strong> lub <strong>koder</strong>.
+Developer w świecie IT to zazwyczaj synonim słów **programista** lub **koder**.
 Jednak oprócz tego podstawowego znaczenia, uważam, że określa ono osobę, która coś buduje.
 I ja właśnie buduję różne rzeczy. Tylko nie z cegieł i betonu, a z technologii.
 
@@ -31,7 +32,7 @@ finger: torrocus: no such user.
 Moim zdaniem słowo developer nie definiuje określonych czynności.
 Jest to raczej droga, pewna ścieżka lub sposób w jaki rozwiązuje się problemy.
 Ale prawdziwym określeniem tego czym się zajmuję i za kogo się uważam jest co innego.
-Dopiero <em>full stack</em> określa szerokość wiedzy i mnogość umiejętności jaką muszę posiadać.
+Dopiero _full stack_ określa szerokość wiedzy i mnogość umiejętności jaką muszę posiadać.
 
 ```bash
 # To jak mnie widzi rodzina.
