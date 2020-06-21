@@ -10,12 +10,35 @@ description: >
 lang: en
 title: Less is more
 
-# Theme settings
+# Build settings
 theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+
+permalink: /:title/
+feed:
+  excerpt_only: true
 
 google_analytics: 'UA-127739651-1'
 highlighter: rouge
 show_excerpts: true
+
+compress_html:
+  blanklines: false
+  clippings: all
+  comments: all
+  ignore:
+    envs: development
+  # endings: all
+  # profile: true
+  # startings: all
 
 disqus:
   shortname: torrocus
@@ -25,12 +48,8 @@ disqus:
 minima:
   date_format: ' '
 
-permalink: /:title/
-
-plugins:
-  - jekyll-redirect-from
-  - jekyll-sitemap
-  - jekyll-time-to-read
+sass:
+  style: compressed
 
 twitter:
   card: summary
