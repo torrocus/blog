@@ -5,6 +5,7 @@ gem 'liquid-c', '~> 4.0'
 gem 'minima', '~> 2.5'
 
 group :jekyll_plugins do
+  gem 'jekyll-commonmark', '~> 1.3.1', github: 'jekyll/jekyll-commonmark'
   gem 'jekyll-feed', '~> 0.13'
   gem 'jekyll-include-cache', '~> 0.2'
   gem 'jekyll-redirect-from', '~> 0.16'

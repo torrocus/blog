@@ -28,6 +28,21 @@ feed:
 
 google_analytics: 'UA-127739651-1'
 highlighter: rouge
+
+markdown: CommonMark
+commonmark:
+  extensions: ['autolink', 'strikethrough', 'table', 'tagfilter', 'tasklist']
+  options: ['FOOTNOTES', 'GITHUB_PRE_LANG', 'SMART', 'UNSAFE']
+
+# markdown: kramdown
+# kramdown:
+#   auto_ids: true
+#   input: GFM
+#   syntax_highlighter: rouge
+#   syntax_highlighter_opts:
+#     disable: false
+#     line_numbers: true
+
 show_excerpts: true
 
 compress_html:
