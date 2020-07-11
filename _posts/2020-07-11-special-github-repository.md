@@ -78,8 +78,12 @@ And it gives the effect as in the screenshot below:
 ![After create secret repository][image-after-create-secret-repo]
 
 For now, I'm still testing the features of this repository.
-This secret solution has many limitations.
-One of them is that a large image in GitHub profile will not be displayed.
+I noticed the following properties:
+
++ Support for different types of images (jpg, png, gif, svg).
+  For images to display correctly, they must have an absolute path.
+  `https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE`
+
 I treat it as an experiment and fun, so I don't have any special expectations.
 
 
