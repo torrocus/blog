@@ -25,6 +25,7 @@ exclude:
 permalink: /:title/
 feed:
   excerpt_only: true
+  posts_limit: 5
 
 google_analytics: 'UA-127739651-1'
 highlighter: rouge
