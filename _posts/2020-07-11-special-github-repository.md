@@ -83,6 +83,14 @@ I noticed the following properties:
 + Support for different types of images (jpg, png, gif, svg).
   For images to display correctly, they must have an absolute path.
   `https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE`
++ Images are also links.
+  ```html
+  <a target="_blank"
+     rel="noopener noreferrer"
+     href="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
+  <img src="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
+  </a>
+  ```
 
 I treat it as an experiment and fun, so I don't have any special expectations.
 
