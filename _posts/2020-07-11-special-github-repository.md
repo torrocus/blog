@@ -39,8 +39,8 @@ started.
 
 ### You found a secret!
 
-Because this is a secret, above message appears if and only if
-the repository name is exactly the same as the GitHub username.
+Because this is a secret, the above message appears if and only if
+the repository name is exactly as the GitHub username.
 
 ![Animation revealing a special repository][animation-about-secret-repo]
 
@@ -77,20 +77,85 @@ And it gives the effect as in the screenshot below:
 
 ![After create secret repository][image-after-create-secret-repo]
 
-For now, I'm still testing the features of this repository.
-I noticed the following properties:
+## Features of the special repository
 
-+ Support for different types of images (jpg, png, gif, svg).
+In most cases, the README file in this "secret repo" behaves like any other markdown file.
+For now, I'm still testing the features of this repository.
+I noticed the following properties.
+
+### Interpretation of markdown syntax
+
++ Support headers (six levels of section headings)
+  ```markdown
+  # Header with <h1> tag
+  ## Header with <h2> tag
+  ### Header with <h3> tag
+  #### Header with <h4> tag
+  <!-- Headlines below are much smaller than normal text -->
+  ##### Header with <h5> tag
+  ###### Header with <h6> tag
+  ```
++ Support for emphasis text and its combinations
+  * **bold text**,
+  * _italic text_,
+  * ~~stricken text~~
+  * **bold and _italic text_**
+  * _italic and **bold text**_
++ List support:
+  * ordered list
+  * unordered list
++ Support for tables in ASCII format
++ Support blockquotes
+  ```markdown
+  Benjamin Franklin said:
+  > Three may keep a secret if two of them are dead.
+  ```
++ Automatic linking for URLs.
+  Using the correct URL in the text will create a link.
++ Support a code snippet in the body of the text.
+  Here is the inline code `print("You found a secret!");`.
++ Code block display support.
++ Support for different types of images (JPG, PNG, GIF, SVG).
   For images to display correctly, they must have an absolute path.
   `https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE`
-+ Images are also links.
-  ```html
-  <a target="_blank"
-     rel="noopener noreferrer"
-     href="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
-  <img src="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
-  </a>
-  ```
+
+Using only the above functionalities may be sufficient.
+But a demanding GitHub user will notice several problems.
+
+#### **Not supported** features
+
++ Doesn't support some HTML tags like `<small>`.
+  Tags that are not converted will appear as text.
++ JavaScript tags are displayed as text and are not interpreted.
++ Doesn't support username @mentions.
+  This is strange because this function is often used on GitHub.
+  Maybe in the future, this will change.
++ Doesn't support inline SVG.
+  This image is not displayed.
+  Instead of inline, provide the full, absolute path to SVG.
++ Doesn't support Base64 images.
+
+#### Image support
+
+Images are displayed when I give the full path to them.
+The code in Markdown looks something like this:
+```markdown
+![ALT TEXT](https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE)
+```
+
+GitHub converted the above Markdown code to HTML as follows:
+```html
+<a target="_blank"
+   rel="noopener noreferrer"
+   href="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
+  <img alt="ALT TEXT"
+       src="https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE">
+</a>
+```
+
+GitHub replaced the image to a link with the image.
+Fortunately, I can use HTML directly with `<img>` tag.
+In that case it's possible to overwrite the link associated with the image.
 
 I treat it as an experiment and fun, so I don't have any special expectations.
 
