@@ -46,11 +46,57 @@ Part of the configuration file `_config.yml`
 ```yaml
 markdown: CommonMark
 commonmark:
-  extensions: ['autolink', 'strikethrough', 'table', 'tagfilter', 'tasklist']
-  options: ['FOOTNOTES', 'GITHUB_PRE_LANG', 'SMART', 'UNSAFE']
+  extensions:
+    - autolink
+    - strikethrough
+    - table
+    - tagfilter
+    - tasklist
+  options:
+    - FOOTNOTES
+    - GITHUB_PRE_LANG
+    - SMART
+    - STRIKETHROUGH_DOUBLE_TILDE
+    - UNSAFE
 ```
 
 This blog also uses this configuration.
+
+### CommonMark advantage
+
+The first and indisputable advantage of CommonMark is of course the processing speed.
+
+### CommonMark disadvantage
+
+However, I also see disadvantages.
+Using markdown with CommonMark, you cannot add HTML attributes such as id or class.
+Kramdown allowed the following markdown:
+```markdown
+{:.commonmark-vs-kramdown}
+**CommonMark** is faster than **Kramdown**.
+```
+
+Kramdown parsed the above code to the following HTML:
+```html
+<p class="commonmark-vs-kramdown">
+  <strong>CommonMark</strong> is faster than <strong>Kramdown</strong>.
+</p>
+```
+
+Unfortunately CommonMark parses it like this:
+```html
+<p>{:.commonmark-vs-kramdown}
+<strong>CommonMark</strong> is faster than <strong>Kramdown</strong>.</p>
+```
+
+I can live with it and use HTML in problematic places.
+But surely attribute handling would be a big, positive change for CommonMark.
+Maybe in the future...
+
+{:.commonmark-support-html-classes}
+This is my test for **CommonMark** on a living organism.
+If you don't see the `{:.commonmark-support-html-classes}` text at the beginning of the paragraph,
+then CommonMark supports this functionality or I have given up I have changed the markdown parser.
 
 ---
 
@@ -86,12 +132,30 @@ This blog also uses this configuration.
                         Text in 'single' and "double" quotation marks have a starting and ending tag.
                         Depending on the number of dashes, different characters are used.
                         Single dash -, double dash --, triple dash ---, quad dash ----.
++ **STRIKETHROUGH_DOUBLE_TILDE** - Strikethrough only with two tildes.
+                                   This means that it is `~~stricked text~~` and it's `~not stricked text~`.
+                                   Using a single tilde for strikethrough is deprecated and is not recommended.
+                                   A single tilde should be used for subscript.
+                                   Similar behavior with double tildes is in Redcarpet.
 + **UNSAFE**          - Allows inserting plain HTML.
+
+#### Options that I don't use
+Options available in the documentation.
+I haven't tested them in detail.
+
++ **FULL_INFO_STRING**              - Include full info strings of code blocks in separate attribute
++ **HARDBREAKS**                    - Treat `\n` as hardbreaks (by adding `<br/>`).
++ **LIBERAL_HTML_TAG**              - Support liberal parsing of inline HTML tags.
++ **NOBREAKS**                      - Translate `\n` in the source to a single whitespace.
++ **SOURCEPOS**                     - Include source position in rendered HTML.
++ **TABLE_PREFER_STYLE_ATTRIBUTES** - Use style instead of align for table cells
++ **VALIDATE_UTF8**                 - Replace illegal sequences with the replacement character `U+FFFD`.
 
 [cmark-gfm]: https://github.com/github/cmark-gfm
 [commonmarker]: https://github.com/gjtorikian/commonmarker
 [jekyll-commonmark]: https://github.com/jekyll/jekyll-commonmark
 [kramdown]: https://github.com/gettalong/kramdown
+[redcarpet]: https://github.com/vmg/redcarpet
 
 [smart-dashes]: https://github.com/gjtorikian/commonmarker/blob/master/ext/commonmarker/inlines.c#L577
 [smart-period]: https://github.com/gjtorikian/commonmarker/blob/master/ext/commonmarker/inlines.c#L603

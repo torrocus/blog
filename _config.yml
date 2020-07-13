@@ -32,8 +32,18 @@ highlighter: rouge
 
 markdown: CommonMark
 commonmark:
-  extensions: ['autolink', 'strikethrough', 'table', 'tagfilter', 'tasklist']
-  options: ['FOOTNOTES', 'GITHUB_PRE_LANG', 'SMART', 'UNSAFE']
+  extensions:
+    - autolink
+    - strikethrough
+    - table
+    - tagfilter
+    - tasklist
+  options:
+    - FOOTNOTES
+    - GITHUB_PRE_LANG
+    - SMART
+    - STRIKETHROUGH_DOUBLE_TILDE
+    - UNSAFE
 
 # markdown: kramdown
 # kramdown:
@@ -42,7 +52,7 @@ commonmark:
 #   syntax_highlighter: rouge
 #   syntax_highlighter_opts:
 #     disable: false
-#     line_numbers: true
+#     line_numbers: false
 
 show_excerpts: true
 
