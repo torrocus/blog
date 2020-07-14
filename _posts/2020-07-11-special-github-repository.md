@@ -3,6 +3,7 @@ categories: tips
 date: 2020-07-11 23:55:00 +0200
 description: How to add README.md to GitHub Profile? What features are supported and which are not?
 excerpt: Let's fun! How to create a secret GitHub repository?
+image: /assets/images/special-github-repository/twitter_image.png
 lang: en
 layout: post
 title: Create a special repository in your GitHub Profile 🔨
