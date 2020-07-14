@@ -119,6 +119,14 @@ I noticed the following properties.
 + Support for different types of images (JPG, PNG, GIF, SVG).
   For images to display correctly, they must have an absolute path.
   `https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE`
++ Support `<details>` and `<summary>` tags.
+  You can make the profile more interactive.
+  ```markdown
+  <details open>
+    <summary>Technologies</summary>
+    <p>...</p>
+  </details>
+  ```
 
 Using only the above functionalities may be sufficient.
 But a demanding GitHub user will notice several problems.
@@ -163,3 +171,5 @@ I treat it as an experiment and fun, so I don't have any special expectations.
 
 [animation-about-secret-repo]: {{ 'assets/images/special-github-repository/create-secret-repository.gif' | relative_url }}
 [image-after-create-secret-repo]: {{ 'assets/images/special-github-repository/after-create-secret-repository.png' | relative_url }}
+[github-html-blocks]: https://github.github.com/gfm/#html-blocks
+
