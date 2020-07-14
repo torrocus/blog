@@ -128,6 +128,9 @@ I noticed the following properties.
     <p>...</p>
   </details>
   ```
+  There is a <a name='details-problem'>small problem with details</a>.
+  After `</details>` tag, enter the additional enter character.
+  Otherwise, Markdown is interpreted incorrectly in the next line.
 + The displayed README.md file on the GitHub Profile is responsive.
   The maximum ASCII Art width can be 115 characters wide.
   The content should be in `<pre>` tags.
