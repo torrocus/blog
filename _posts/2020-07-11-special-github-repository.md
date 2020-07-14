@@ -127,6 +127,11 @@ I noticed the following properties.
     <p>...</p>
   </details>
   ```
++ The displayed README.md file on the GitHub Profile is responsive.
+  The maximum ASCII Art width can be 115 characters wide.
+  The content should be in `<pre>` tags.
+  But if it is to display well on mobile, it should be as wide as 55 characters.
+  Empirically checked.
 
 Using only the above functionalities may be sufficient.
 But a demanding GitHub user will notice several problems.
