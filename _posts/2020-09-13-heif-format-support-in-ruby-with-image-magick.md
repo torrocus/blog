@@ -3888,6 +3888,57 @@ Just run `ldconfig` command as root.
 sudo ldconfig
 ```
 
+### Uninstall Image Magick
+
+There may be times when you want to revert to the previous version of Image Magick.
+
+```
+sudo make uninstall
+```
+
+<details>
+<summary>
+Click here to see uninstall call.
+</summary>
+<p>
+
+```
+$ sudo make uninstall
+[sudo] password for torrocus:
+ ( cd '/usr/local/include/ImageMagick-7/MagickCore' && rm -f MagickCore.h animate.h annotate.h artifact.h attribute.h blob.h cache.h cache-view.h channel.h cipher.h client.h coder.h color.h colormap.h colorspace.h compare.h composite.h compress.h configure.h constitute.h decorate.h delegate.h deprecate.h display.h distort.h distribute-cache.h draw.h effect.h enhance.h exception.h feature.h fourier.h fx.h gem.h geometry.h histogram.h identify.h image.h image-view.h layer.h linked-list.h list.h locale_.h log.h magic.h magick.h magick-config.h magick-type.h matrix.h memory_.h method-attribute.h methods.h mime.h module.h monitor.h montage.h morphology.h nt-base.h opencl.h option.h paint.h pixel.h pixel-accessor.h policy.h prepress.h profile.h property.h quantize.h quantum.h random_.h registry.h resample.h resize.h resource_.h segment.h semaphore.h shear.h signature.h splay-tree.h static.h statistic.h stream.h string_.h studio.h timer.h token.h transform.h threshold.h type.h utility.h version.h vision.h visual-effects.h widget.h xml-tree.h xwindow.h )
+ ( cd '/usr/local/include/ImageMagick-7/MagickCore' && rm -f magick-baseconfig.h )
+ ( cd '/usr/local/include/ImageMagick-7/MagickWand' && rm -f MagickWand.h animate.h compare.h composite.h conjure.h convert.h deprecate.h display.h drawing-wand.h identify.h import.h magick-cli.h magick-image.h magick-property.h method-attribute.h mogrify.h montage.h operation.h pixel-iterator.h pixel-wand.h stream.h wandcli.h wand-view.h )
+ ( cd '/usr/local/bin' && rm -f magick )
+ ( cd '/usr/local/bin' && rm -f MagickCore-config MagickWand-config Magick++-config )
+ ( cd '/usr/local/etc/ImageMagick-7/' && rm -f colors.xml delegates.xml log.xml mime.xml policy.xml quantization-table.xml thresholds.xml type.xml type-apple.xml type-dejavu.xml type-ghostscript.xml type-urw-base35.xml type-windows.xml )
+ ( cd '/usr/local/share/ImageMagick-7' && rm -f english.xml francais.xml locale.xml )
+ ( cd '/usr/local/lib/ImageMagick-7.0.10/config-Q16HDRI' && rm -f configure.xml )
+ ( cd '/usr/local/share/doc/ImageMagick-7' && rm -f LICENSE ChangeLog NEWS.txt )
+ /bin/bash ./libtool   --mode=uninstall rm -f '/usr/local/lib/libMagickCore-7.Q16HDRI.la'
+libtool: uninstall: rm -f /usr/local/lib/libMagickCore-7.Q16HDRI.la /usr/local/lib/libMagickCore-7.Q16HDRI.so.7.0.0 /usr/local/lib/libMagickCore-7.Q16HDRI.so.7 /usr/local/lib/libMagickCore-7.Q16HDRI.so /usr/local/lib/libMagickCore-7.Q16HDRI.a
+ /bin/bash ./libtool   --mode=uninstall rm -f '/usr/local/lib/libMagickWand-7.Q16HDRI.la'
+libtool: uninstall: rm -f /usr/local/lib/libMagickWand-7.Q16HDRI.la /usr/local/lib/libMagickWand-7.Q16HDRI.so.7.0.0 /usr/local/lib/libMagickWand-7.Q16HDRI.so.7 /usr/local/lib/libMagickWand-7.Q16HDRI.so /usr/local/lib/libMagickWand-7.Q16HDRI.a
+ /bin/bash ./libtool   --mode=uninstall rm -f '/usr/local/lib/libMagick++-7.Q16HDRI.la'
+libtool: uninstall: rm -f /usr/local/lib/libMagick++-7.Q16HDRI.la /usr/local/lib/libMagick++-7.Q16HDRI.so.4.0.0 /usr/local/lib/libMagick++-7.Q16HDRI.so.4 /usr/local/lib/libMagick++-7.Q16HDRI.so /usr/local/lib/libMagick++-7.Q16HDRI.a
+rm -f /usr/local/share/doc/ImageMagick-7/index.html
+for dir in images images/patterns www www/assets www/api www/source www/Magick++ www/api/MagickCore www/api/MagickWand ; do \
+  rm -f -r /usr/local/share/doc/ImageMagick-7/$dir ; \
+done
+cd /usr/local/bin ; \
+for name in animate compare composite conjure convert display identify import magick-script mogrify montage stream ; \
+do \
+  target=`echo "$name" | sed 's,^.*/,,;s/$//;s,x,x,;s/$//'`; \
+  rm -f $target ; \
+done
+ ( cd '/usr/local/include/ImageMagick-7/Magick++' && rm -f Blob.h CoderInfo.h Color.h Drawable.h Exception.h Functions.h Geometry.h Image.h Include.h Montage.h Pixels.h ResourceLimits.h SecurityPolicy.h Statistic.h STL.h TypeMetric.h )
+ ( cd '/usr/local/include/ImageMagick-7' && rm -f Magick++.h )
+ ( cd '/usr/local/share/man/man1' && rm -f MagickCore-config.1 MagickWand-config.1 Magick++-config.1 ImageMagick.1 animate.1 compare.1 composite.1 conjure.1 convert.1 display.1 identify.1 import.1 magick.1 magick-script.1 mogrify.1 montage.1 stream.1 )
+ ( cd '/usr/local/lib/pkgconfig' && rm -f ImageMagick.pc MagickCore.pc ImageMagick-7.Q16HDRI.pc MagickCore-7.Q16HDRI.pc MagickWand.pc MagickWand-7.Q16HDRI.pc Magick++.pc Magick++-7.Q16HDRI.pc )
+```
+</p>
+</details>
+
+
 ## Using HEIF in Ruby
 
 Run gem install command.
