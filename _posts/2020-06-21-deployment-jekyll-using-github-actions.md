@@ -3,12 +3,41 @@ categories: deployment
 date: 2020-06-21 16:00:00 +0200
 excerpt: Deployment automation on GitHub Pages
 lang: en
+last_modified_at: 2021-04-25 21:00:00 +0200
 layout: post
-title: Building site based on Jekyll 4.1 using GitHub Actions
+title: Building site based on Jekyll 4.2 using GitHub Actions
 ---
 
 Today I decided to check feature [GitHub Actions][github-actions].
-My goal is to prepare configuration for GitHub Actions and publish a site based on [Jekyll][jekyll] 4.1
+My goal is to prepare configuration for GitHub Actions and publish a site based on [Jekyll][jekyll] 4.2
+
+## GitHub Pages uses Jekyll 3.9
+
+I'm adding this part because I forgot the reasons for my decision.
+I maintain several Jekyll-based websites / blogs.
+It's time to update Ruby on one of the blogs.
+Edit `.ruby-version` file, then run `bundle install`.
+And finally, run jekyll server: `jekyll s`.
+It's failed, a message popped up:
+
+```
+jekyll 3.9.0 | Error:  no implicit conversion of Hash into Integer
+/home/torrocus/.rvm/gems/ruby-3.0.0@blog/gems/pathutil-0.16.2/lib/pathutil.rb:502:in `read': no implicit conversion of Hash into Integer (TypeError)
+```
+
+Googling the phrase
+"jekyll 3.9.0 | Error:  no implicit conversion of Hash into Integer"
+leads me to a simple conclusion:
+**Jekyll 3.9 is not compatible with Ruby 3.**
+
+The solution is to update Jekyll to at least 4.x.
+However, here comes another problem.
+**GitHub Pages doesn't support Jekyll 4.x.**
+Current supported versions can be found on the [GitHub official dependency page][github-pages-dependency-versions].
+
+In short, as long as GitHub Pages is using Jekyll 3.9,
+neither Jekyll nor Ruby will be able to be updated.
+The solution to this problem is to use GitHub Actions with Jekyll 4 or later.
 
 ## GitHub Actions step by step for Jekyll
 
@@ -173,5 +202,6 @@ This blog also uses this configuration.
 + **JEKYLL_PAT** - Jekyll Personal Access Token
 
 [github-actions]: https://github.com/features/actions
+[github-pages-dependency-versions]: https://pages.github.com/versions/
 [github-personal-access-tokens]: https://github.com/settings/tokens
 [jekyll]: https://jekyllrb.com/
