@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang='en'><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Generating password 🔑 | Less is more</title><meta name="generator" content="Jekyll v4.2.0" /><meta property="og:title" content="Generating password 🔑" /><meta name="author" content="torrocus" /><meta property="og:locale" content="en" /><meta name="description" content="Secure password generator in Linux. Safe pronounceable password - dream or leak stream?" /><meta property="og:description" content="Secure password generator in Linux. Safe pronounceable password - dream or leak stream?" /><link rel="canonical" href="https://torrocus.com/blog/generating-password-in-ubuntu/" /><meta property="og:url" content="https://torrocus.com/blog/generating-password-in-ubuntu/" /><meta property="og:site_name" content="Less is more" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2020-09-04T12:00:00+00:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Generating password 🔑" /><meta name="twitter:site" content="@torrocus" /><meta name="twitter:creator" content="@torrocus" /> <script type="application/ld+json"> {"headline":"Generating password 🔑","description":"Secure password generator in Linux. Safe pronounceable password - dream or leak stream?","dateModified":"2020-09-04T12:00:00+00:00","datePublished":"2020-09-04T12:00:00+00:00","url":"https://torrocus.com/blog/generating-password-in-ubuntu/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://torrocus.com/blog/generating-password-in-ubuntu/"},"author":{"@type":"Person","name":"torrocus"},"@context":"https://schema.org"}</script><link rel="stylesheet" href="/blog/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://torrocus.com/blog/feed.xml" title="Less is more" /><script> if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) { (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-127739651-1', 'auto'); ga('send', 'pageview'); } </script></head><body><header class="site-header" role="banner"><div class="wrapper"><a class="site-title" rel="author" href="/blog/">Less is more</a><nav class="site-nav"> <input type="checkbox" id="nav-trigger" class="nav-trigger" /> <label for="nav-trigger"> <span class="menu-icon"> <svg viewBox="0 0 18 15" width="18px" height="15px"><path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/> </svg> </span> </label><div class="trigger"></div></nav></div></header><main class='page-content' aria-label='Content'><div class='wrapper'><article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"><header class="post-header"><h1 class="post-title p-name" itemprop="name headline">Generating password 🔑</h1><p class="post-meta"> <time class="dt-published" datetime="2020-09-04T12:00:00+00:00" itemprop="datePublished"> </time></p></header><div class="post-content e-content" itemprop="articleBody"><h2>How to generate a secure password?</h2><p>There are <strong>no 100% secure passwords</strong>. Cracking any password is just a matter of time. But as programmers, we can make it harder.</p><p>Daily I use Ubuntu. The solutions provided will therefore apply to this environment. But these solutions are available on various Linux distributions.</p><h3>Little improvisation</h3><p>This way is to use Linux commands and a dictionary file. The <code>shuf</code> command will randomize a few words. And <code>tr</code> will remove the enters and this way we get a long password. Long doesn’t mean safe.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shuf -n8 /usr/share/dict/words | tr -d '\n'
+PentaxAlsopwigwamsunsureexplorationsupposedlyattiresignalling
+</code></pre></div></div><p>This idea is taken from <a href="https://superuser.com/questions/237228/command-line-tool-to-generate-memorable-passwords">Stack Overflow</a>. I strongly advise against generating a password in this way.</p><h3>pwgen</h3><p>Pwgen is a tool for automatic password generation. Pwgen generates random, meaningless but pronounceable passwords. The term pronounceable and a password of several dozen letters are in my opinion an oxymoron. The generated passwords include only lowercase letters, or upper and lower case mixed, or digits. For better memorization, capital letters and numbers are placed in the appropriate positions. It gives the impression of constructed words. The pwgen command with no parameters will generate 160 eight-characters passwords. Usually, one password is needed. Moreover, eight letters in a password are definitely not enough.</p><details> <summary> Click here to see how to install pwgen. </summary><p> Installing pwgen:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install pwgen
+</code></pre></div></div></p></details> <br><p>To generate 1 password with 32 characters:</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen 32 1
+gugoqu0Ziu4unguori7Ehooroo4eic1o
+</code></pre></div></div><p>Need more characters in your password? No problem.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen 48 1
+ahr6ejei4uithohloh9aib8IeY4zu4KaecuGheijo0IngooV
+</code></pre></div></div><p>Even more password characters? Your wish is my command.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen 64 1
+eem1Aighehupuaphie5eo5Apah3baataegahxiec3quenaeMieH6eiMaj9hai0Oh
+</code></pre></div></div><details> <summary> Click here to see a pwgen parameter list. </summary><p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen -h
+Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
+
+Options supported by pwgen:
+  -c or --capitalize
+	Include at least one capital letter in the password
+  -A or --no-capitalize
+	Don't include capital letters in the password
+  -n or --numerals
+	Include at least one number in the password
+  -0 or --no-numerals
+	Don't include numbers in the password
+  -y or --symbols
+	Include at least one special symbol in the password
+  -r &lt;chars&gt; or --remove-chars=&lt;chars&gt;
+	Remove characters from the set of characters to generate passwords
+  -s or --secure
+	Generate completely random passwords
+  -B or --ambiguous
+	Don't include ambiguous characters in the password
+  -h or --help
+	Print a help message
+  -H or --sha1=path/to/file[#seed]
+	Use sha1 hash of given file as a (not so) random generator
+  -C
+	Print the generated passwords in columns
+  -1
+	Don't print the generated passwords in columns
+  -v or --no-vowels
+	Do not use any vowels so as to avoid accidental nasty words
+</code></pre></div></div></p></details> <br><p>Regarding security, I think it’s worth reading the <a href="https://anarc.at/blog/2017-02-18-passwords-entropy/">Anarcat post</a>. The author strongly advises against using pwgen.</p><h3>apg</h3><p>APG means Automated Password Generator.</p><details> <summary> Click here to see how to install apg. </summary><p> Installing apg:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install apg
+</code></pre></div></div></p></details> <br><p><code>apg</code> uses two algorithms to generate passwords. The first is based on an algorithm for generating pronounced passwords. The second is an algorithm for generating passwords with random characters. This first algorithm is outdated. His vulnerabilities were discussed at the <a href="https://csrc.nist.gov/publications/history/nissc/1994-17th-NCSC-proceedings-vol-1.pdf">National Computer Security Conference</a>. This second algorithm has 35 configurable operating modes.</p><p>The apg command generates several passwords by default.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apg
+^ovWiffAsdelv1 (CIRCUMFLEX-ov-Wiff-As-delv-ONE)
+Opp\knis8 (Opp-BACKSLASH-knis-EIGHT)
+tyob9Ok* (tyob-NINE-Ok-ASTERISK)
+Igyat2orIct[ (Ig-yat-TWO-or-Ict-LEFT_BRACKET)
+;ojWiuxCund4 (SEMICOLON-oj-Wi-ux-Cund-FOUR)
+VuodecDis5op&lt; (Vu-od-ec-Dis-FIVE-op-LESS_THAN)
+</code></pre></div></div><p>To generate 1 password with 64 characters, type:</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apg -m 64 -n 1
+AtnokFuvWapIllAwkugheidijviFasOrIzyictUnveyzMobavArdOkWockyiesBu
+</code></pre></div></div><p>By adding the parameter <code>-a 0</code> you can use the first algorithm:</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apg -a 0 -m 64 -n 1
+riWrovDisickuAbpoovhyijyatyicdoupIalneDrojeuvwochanVafJeucgutoob
+</code></pre></div></div><p>And the parameter <code>-a 1</code> uses the second algorithm:</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>torrocus@knuth:~$ apg -a 1 -m 64 -n 1
+zB;W&amp;)dg(_1!{eZ@wBxkOO/x7&lt;:DU5k]u3TW\aTgs.nK$rT\5"FKYBy(WKrpR-qA
+</code></pre></div></div><details> <summary> Click here to see a apg parameter list. </summary><p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apg -h
+
+apg   Automated Password Generator
+        Copyright (c) Adel I. Mirzazhanov
+
+apg   [-a algorithm] [-r file]
+      [-M mode] [-E char_string] [-n num_of_pass] [-m min_pass_len]
+      [-x max_pass_len] [-c cl_seed] [-d] [-s] [-h] [-y] [-q]
+
+-M mode         new style password modes
+-E char_string  exclude characters from password generation process
+-r file         apply dictionary check against file
+-b filter_file  apply bloom filter check against filter_file
+                (filter_file should be created with apgbfm(1) utility)
+-p substr_len   paranoid modifier for bloom filter check
+-a algorithm    choose algorithm
+                 1 - random password generation according to
+                     password modes
+                 0 - pronounceable password generation
+-n num_of_pass  generate num_of_pass passwords
+-m min_pass_len minimum password length
+-x max_pass_len maximum password length
+-s              ask user for a random seed for password
+                generation
+-c cl_seed      use cl_seed as a random seed for password
+-d              do NOT use any delimiters between generated passwords
+-l              spell generated password
+-t              print pronunciation for generated pronounceable password
+-y              print crypted passwords
+-q              quiet mode (do not print warnings)
+-h              print this help screen
+-v              print version information
+</code></pre></div></div></p></details> <br><p>This solution is a bit outdated but still available in packages.</p><h3>diceware</h3><p>Diceware creates memorizable passphrases from wordlists and various sources of randomness.</p><details> <summary> Click here to see how to install diceware. </summary><p> Installing diceware:<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install diceware
+</code></pre></div></div></p></details> <br><p>Running <code>diceware</code> generates a password that consists of 6 words (default).</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diceware
+SlipsTrumpetSariWaxIdeaDare
+</code></pre></div></div><p>Of course, the number of words in the password can be changed.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diceware -n 10
+SlamsZealWhoseTineLoomAnagramMossBrimBleatIsotope
+</code></pre></div></div><p>An interesting option is the possibility of rolling real dice. I used this option once. As humans, I think we’re too lazy.</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diceware -r realdice
+Please roll 5 dice (or a single dice 5 times).
+What number shows dice number 1?
+...
+What number shows dice number 5?
+SoundLimaQuakeCaptainPrudeFrost
+</code></pre></div></div><p>Such passwords are probably easier to remember. Are these passwords more secure? This is a matter for discussion.</p><details> <summary> Click here to see a diceware parameter list. </summary><p><p>The diceware parameter list is as follows:</p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diceware -h
+usage: diceware [-h] [-n NUM] [-c | --no-caps] [-s NUM] [-d DELIMITER]
+                [-r SOURCE] [-w NAME] [--dice-sides N] [-v] [--version]
+                [INFILE]
+
+Create a passphrase
+
+positional arguments:
+  INFILE                Input wordlist. `-' will read from stdin.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n NUM, --num NUM     number of words to concatenate. Default: 6
+  -c, --caps            Capitalize words. This is the default.
+  --no-caps             Turn off capitalization.
+  -s NUM, --specials NUM
+                        Insert NUM special chars into generated word.
+  -d DELIMITER, --delimiter DELIMITER
+                        Separate words by DELIMITER. Empty string by default.
+  -r SOURCE, --randomsource SOURCE
+                        Get randomness from this source. Possible values:
+                        `realdice', `system'. Default: system
+  -w NAME, --wordlist NAME
+                        Use words from this wordlist. Possible values: `en',
+                        `en_eff', `en_orig', `en_securedrop'. Wordlists are
+                        stored in the folder displayed below. Default:
+                        en_securedrop
+  -v, --verbose         Be verbose. Use several times for increased verbosity.
+  --version             output version information and exit.
+
+Arguments related to `realdice' randomsource:
+  --dice-sides N        Number of sides of dice. Default: 6
+
+Wordlists are stored in /usr/lib/python2.7/dist-packages/diceware/wordlists
+</code></pre></div></div></p></details> <br><h2>Is it worth using password generators?</h2><p>Yes of course. Mainly because each of us has our own behavioral profile. It’s easier to crack a person than a strong password.</p><hr /></div><div id="disqus_thread"></div><script> var disqus_config = function () { this.page.url = 'https://torrocus.com/blog/generating-password-in-ubuntu/'; this.page.identifier = 'https://torrocus.com/blog/generating-password-in-ubuntu/'; }; (function() { var d = document, s = d.createElement('script'); s.src = 'https://torrocus.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/blog/generating-password-in-ubuntu/" hidden></a></article></div></main><footer class="site-footer h-card"> <data class="u-url" href="/blog/"></data><div class="wrapper"><h2 class="footer-heading">Less is more</h2><div class="footer-col-wrapper"><div class="footer-col footer-col-1"><ul class="contact-list"><li class="p-name">torrocus</li></ul></div><div class="footer-col footer-col-2"><ul class="social-media-list"></ul></div><div class="footer-col footer-col-3"><p>Full-stack developer, who loves challenges, tries to write a tech blog about Ruby on Rails, design patterns and application architecture.</p></div></div></div></footer></body></html>

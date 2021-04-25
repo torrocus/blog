@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://torrocus.com/blog/deployment-jekyll-using-github-actions/</loc>
+<lastmod>2021-04-25T19:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://torrocus.com/blog/increase-markdown-conversion-speed-in-jekyll/</loc>
+<lastmod>2020-07-08T07:30:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://torrocus.com/blog/special-github-repository/</loc>
+<lastmod>2020-07-11T21:55:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://torrocus.com/blog/generating-password-in-ubuntu/</loc>
+<lastmod>2020-09-04T12:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://torrocus.com/blog/heif-format-support-in-ruby-with-image-magick/</loc>
+<lastmod>2020-09-13T16:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://torrocus.com/blog/</loc>
+</url>
+</urlset>
