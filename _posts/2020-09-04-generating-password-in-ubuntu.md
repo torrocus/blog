@@ -1,5 +1,5 @@
 ---
-categories: deployment
+categories: security
 date: 2020-09-04 14:00:00 +0200
 excerpt: Secure password generator in Linux. Safe pronounceable password - dream or leak stream?
 lang: en
