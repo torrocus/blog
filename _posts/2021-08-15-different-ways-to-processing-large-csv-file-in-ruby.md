@@ -26,12 +26,12 @@ We want to backfill this column with dates.
 The necessary data is available from another source (possibly Snowflake).
 Anyway, they can be exported to a CSV file.
 This file has over 16 million records.
-This shows the scale of the challenge.
+It shows the scale of the challenge.
 
 ### Measure memory usage and time speed
 
 For measuring and printing the memory used and time spent,
-I used a similar methods as [Dalibor Nasevic][dalibor-nasevic]
+I used similar methods as [Dalibor Nasevic][dalibor-nasevic]
 in the article "Processing large CSV files with Ruby".
 
 ```ruby
@@ -59,9 +59,9 @@ end
 
 #### Is RSS column from ps command enough?
 
-**RSS** is Resident Set Size and this is the size of memory
+**RSS** is Resident Set Size, and this is the size of memory
 that the process is currently using to load (on all pages of memory).
-This means that shared libraries that need to be loaded only once
+It means that shared libraries that need to be loaded only once
 will be counted for each process separately.
 So we get a pessimistic value of memory usage.
 
@@ -77,7 +77,7 @@ user_id,last_visit_at
 Due to the fact that we are working with over 16M users,
 we have decided to minimize the memory consumption as much as possible.
 The above-mentioned article by [Dalibor Nasevic][dalibor-nasevic]
-helped with choosing way of implementation.
+helped with choosing the way of implementation.
 For each line in the CSV file, we parsed the data,
 looked for the appropriate record in the database,
 and updated its value.
@@ -132,7 +132,7 @@ Memory: 6.7 MB
 ### Load CSV File using File class
 
 The structure of our CSV file is very simple.
-We only have 2 columns.
+We only have two columns.
 So we can take a risk and use `File` class instead of `CSV` class.
 
 ```ruby
@@ -146,7 +146,7 @@ Time: 4.9
 Memory: 15.98 MB
 ```
 
-Higher memory consumption translated into speed of loading.
+Higher memory consumption translated into the speed of loading.
 
 ### Load data into Hash
 
@@ -169,7 +169,8 @@ Memory: 2336.32 MB
 
 Let's see what we get when we use File class instead of CSV class.
 Of course, we have to parse the CSV file ourselves,
-but in this case it's trivial.
+but in this case,
+it's trivial.
 
 ```ruby
 hash = {}
@@ -186,15 +187,15 @@ Memory: 2258.76 MB
 ```
 
 The memory consumption is similar, but the speed is much faster.
-This is probably because the CSV class provides data validation.
+It's probably because the CSV class provides data validation.
 We believe the data is correct.
-We know that the columns are separated by a comma
+We know that the columns are separated by a comma,
 and therefore we are doing a split.
 
 ## Better understand own data
 
 The important thing is that we want to store the last seen date in the database.
-In the first version of implementation,
+In the first version of the implementation,
 the input file contains the columns `user_id` and `last_visit_at`.
 This means that we have objects of the `DateTime` class as input.
 However, we actually need `Date` objects.
@@ -235,7 +236,7 @@ user_id, last_seen_on
 5, 2019-09-21
 ```
 
-If user id is a key and data is a value, we get hash like below:
+If the user id is a key and data is a value, we get a hash like below:
 
 ```ruby
 {
@@ -290,9 +291,9 @@ it was possible to go down from 2258.76 MB to 143.16 MB.
 In addition to reducing the size of the memory used,
 this method will have another advantage.
 User ids with the same dates can be updated in one SQL query.
-We will make fewer queries the more data will be grouped.
-This means that the pessimistic number of the groups
-that will be created on the basis of the dates
+The more data we group, the fewer queries we make.
+It means that the pessimistic number of the groups
+created based on the dates
 from 2013 to 2021 is 3285 (9 years * 365 days).
 
 I have not used the phrase "pessimistic number of queries" here,
@@ -328,7 +329,7 @@ Memory: 291.14 MB
 
 Even though the amount of memory used has doubled,
 it is still a small value.
-Speed time is of course highly dependent on the inputs (groups of dates).
+Speed time is, of course, highly dependent on the inputs (groups of dates).
 However, it will be much faster than saving sequentially.
 
 ## Summary
