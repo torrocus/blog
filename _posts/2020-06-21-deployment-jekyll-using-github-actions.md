@@ -3,7 +3,7 @@ categories: deployment
 date: 2020-06-21 16:00:00 +0200
 excerpt: Deployment automation on GitHub Pages
 lang: en
-last_modified_at: 2021-04-25 21:00:00 +0200
+last_modified_at: 2021-12-07 10:00:00 +0200
 layout: post
 title: Building site based on Jekyll 4.2 using GitHub Actions
 ---
@@ -197,6 +197,19 @@ In most cases, the above instructions should allow you to build static websites 
 This blog also uses this configuration.
 
 ---
+
+### Possible problems
+
+There have been various problems recently.
+
+#### Could not read Password
+
+Your Jekyll site is working locally.
+You used GitHub Actions to build it, but finally got this message:
+```
+fatal: could not read Password for 'https://***@github.com': No such device or address
+```
+This means that you need to reset the GitHub Actions token.
 
 ### Simple dictionary
 + **JEKYLL_PAT** - Jekyll Personal Access Token
