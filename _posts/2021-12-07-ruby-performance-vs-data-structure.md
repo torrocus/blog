@@ -22,7 +22,7 @@ Moreover, in this case, the new number 8 is also added to the set.
 The most important thing is to build a method
 that will allow us to simulate the next steps.
 So it will convert input into new output.
-Something like this, more or less:
+Something like this:
 
 ```ruby
 input = [3,4,3,1,2]
@@ -50,7 +50,7 @@ end
 ```
 
 The solution is simple and works.
-Probably enough in many cases.
+It's enough in many cases.
 There are only five numbers in the test data.
 However, the real data for the problem contains a set of 300 numbers.
 The first part of the task calls the simulation for 80 steps.
@@ -83,7 +83,7 @@ Likewise, all twos, threes, fours...
 
 ## Changing the data structure
 
-An example from the beginning can be written like this:
+The example from the beginning can be written like this:
 
 ```ruby
 # [3,4,3,1,2]
@@ -95,8 +95,8 @@ hash = {
 }
 ```
 
-So we can convert an array of numbers to a hash.
-The keys of this hash will be numbers in the array.
+So we can convert an array of numbers into a hash.
+The keys of this hash are numbers in the array.
 Values are the number of occurrences of these numbers.
 For the input data from the task, our hash will look like this:
 
@@ -106,9 +106,9 @@ hash
  => {1=>205, 4=>26, 2=>19, 5=>23, 3=>27}
 ```
 
-It's worth remembering that the array contained 300 numbers.
+It's worth remembering that the array contains 300 numbers.
 We can immediately see that there is less data,
-so they will probably also take up less memory.
+so they take up less memory.
 
 The implementation of the `simulate` method doesn't change much.
 We just have to remember that instead of operating on a single number,
@@ -155,7 +155,7 @@ sys	0m0,012s
 ```
 
 As you can see, this solution is as simple as the first.
-It's also much faster.
+And it's much faster.
 All we had to do was adjust the data structure to the problem.
 Everything else was a consequence of this process.
 
