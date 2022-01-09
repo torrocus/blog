@@ -340,4 +340,27 @@ Optimizing for one parameter is not always the best solution.
 We should look for alternative implementations.
 And ask the right questions.
 
+### Use of the solution in production
+
+Below I present the logs after launching my solution in production.
+
+```
+Mon Aug 16 18:57:57 CEST 2021 Task started with ID 57cd08e0dae943a5b352c138193edbaf
+Mon Aug 16 18:58:44 CEST 2021 Running
+Mon Aug 16 22:11:44 CEST 2021 Downloading file from S3 bucket
+Mon Aug 16 22:11:44 CEST 2021 Starting a long process
+Mon Aug 16 22:11:44 CEST 2021 Reading a CSV file user_last_visits_on.csv
+Mon Aug 16 22:11:44 CEST 2021 Number of different dates: 2938
+Mon Aug 16 22:11:44 CEST 2021 Number of data rows in input file: 17027248
+Mon Aug 16 22:11:44 CEST 2021 Backfilling the last_seen_on column for users
+Mon Aug 16 22:11:44 CEST 2021 Successfully completed
+Mon Aug 16 22:11:44 CEST 2021 Number of users with no last_seen_on value: 4
+Mon Aug 16 22:11:44 CEST 2021 Memory: 273.11 MB
+Mon Aug 16 22:12:09 CEST 2021 Finished
+```
+
+There were exactly 17027248 rows in the CSV file representing 2938 different dates.
+This process took 3 hours 14 minutes 12 seconds and took 273.11 MB of RAM.
+It was perfectly acceptable to us.
+
 [dalibor-nasevic]: https://dalibornasevic.com/posts/68-processing-large-csv-files-with-ruby
