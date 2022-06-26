@@ -33,6 +33,7 @@ maintain the git repository and download files.
 sudo apt install -y build-essential curl git
 ```
 
+<!-- sudo apt-get install ca-certificates -->
 <!-- sudo apt build-dep -y imagemagick -->
 
 Development packages to support various **image file formats**.
@@ -658,7 +659,7 @@ cd ..
 
 Download the Image Magick.
 ```
-curl https://www.imagemagick.org/download/ImageMagick.tar.gz -o ImageMagick.tar.gz
+curl https://imagemagick.org/archive/ImageMagick.tar.gz -o ImageMagick.tar.gz
 ```
 
 Unpack the ImageMagick.tar.gz archive.
