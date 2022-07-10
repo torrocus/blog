@@ -86,7 +86,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 4.2)
+  jekyll (~> 4.1)
   jekyll-commonmark (~> 1.4.0)!
   jekyll-feed (~> 0.16)
   jekyll-include-cache (~> 0.2)
