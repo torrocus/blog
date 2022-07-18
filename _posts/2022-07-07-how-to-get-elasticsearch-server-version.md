@@ -109,7 +109,7 @@ ETHON: performed EASY effective_url=http://localhost:9200/ response_code=200 ret
 
 We can call Ruby code directly on the command line.
 
-```ruby
+```shell
 $ ruby -e "require 'elasticsearch'; puts Elasticsearch::Client.new.info.dig('version', 'number')"
 6.8.23
 ```
