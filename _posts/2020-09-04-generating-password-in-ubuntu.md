@@ -324,6 +324,14 @@ Wordlists are stored in /usr/lib/python2.7/dist-packages/diceware/wordlists
 </details>
 <br>
 
+## Generating passwords in Ruby
+
+One way is to use the SecureRandom library.
+
+```ruby
+require 'securerandom'
+SecureRandom.alphanumeric(16)
+```
 
 ## Is it worth using password generators?
 
