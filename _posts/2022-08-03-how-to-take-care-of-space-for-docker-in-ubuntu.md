@@ -32,7 +32,13 @@ WARNING! This will remove:
   - all dangling build cache
 
 Are you sure you want to continue? [y/N] Y
-Total reclaimed space: 0B
+Deleted Containers:
+c7e8e2311c7f70a47f1a95787a5af55aa622732323e489d2135c06d257d91e5a
+693cddf05fd0ede842576b39ccab3bcb0b6a89af7f639b753361ee118c2e9d2e
+778b082b7fd4ff95e7600dab334778173fc56137404fe8cf3774b9f70781dcdd
+bb06d0e44f960f1dee3e4a029b56e283978b9052f6a8d9d75cdc17821ec4f1a7
+
+Total reclaimed space: 10.52MB
 ```
 
 However, if you want to really clean up
