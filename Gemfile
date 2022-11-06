@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.1'
+gem 'jekyll', '~> 4.3'
 # gem 'liquid-c', '~> 4.0'
 gem 'minima', '~> 2.5'
 gem 'webrick', '~> 1.7'
