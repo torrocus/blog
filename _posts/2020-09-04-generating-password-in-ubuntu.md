@@ -24,7 +24,7 @@ The `shuf` command will randomize a few words.
 And `tr` will remove the enters and this way we get a long password.
 Long doesn't mean safe.
 
-```
+```console
 $ shuf -n8 /usr/share/dict/words | tr -d '\n'
 PentaxAlsopwigwamsunsureexplorationsupposedlyattiresignalling
 ```
@@ -52,29 +52,32 @@ Click here to see how to install pwgen.
 <p>
 Installing pwgen:
 
-```
-sudo apt install pwgen
+```console
+$ sudo apt install pwgen
 ```
 </p>
 </details>
 <br>
 
 To generate 1 password with 32 characters:
-```
+
+```console
 $ pwgen 32 1
 gugoqu0Ziu4unguori7Ehooroo4eic1o
 ```
 
 Need more characters in your password?
 No problem.
-```
+
+```console
 $ pwgen 48 1
 ahr6ejei4uithohloh9aib8IeY4zu4KaecuGheijo0IngooV
 ```
 
 Even more password characters?
 Your wish is my command.
-```
+
+```console
 $ pwgen 64 1
 eem1Aighehupuaphie5eo5Apah3baataegahxiec3quenaeMieH6eiMaj9hai0Oh
 ```
@@ -86,7 +89,7 @@ Click here to see a pwgen parameter list.
 </summary>
 <p>
 
-```
+```console
 $ pwgen -h
 Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
 
@@ -138,8 +141,8 @@ Click here to see how to install apg.
 <p>
 Installing apg:
 
-```
-sudo apt install apg
+```console
+$ sudo apt install apg
 ```
 </p>
 </details>
@@ -153,6 +156,7 @@ His vulnerabilities were discussed at the [National Computer Security Conference
 This second algorithm has 35 configurable operating modes.
 
 The apg command generates several passwords by default.
+
 ```
 $ apg
 ^ovWiffAsdelv1 (CIRCUMFLEX-ov-Wiff-As-delv-ONE)
@@ -164,20 +168,23 @@ VuodecDis5op< (Vu-od-ec-Dis-FIVE-op-LESS_THAN)
 ```
 
 To generate 1 password with 64 characters, type:
-```
+
+```console
 $ apg -m 64 -n 1
 AtnokFuvWapIllAwkugheidijviFasOrIzyictUnveyzMobavArdOkWockyiesBu
 ```
 
 By adding the parameter `-a 0` you can use the first algorithm:
-```
+
+```console
 $ apg -a 0 -m 64 -n 1
 riWrovDisickuAbpoovhyijyatyicdoupIalneDrojeuvwochanVafJeucgutoob
 ```
 
 And the parameter `-a 1` uses the second algorithm:
+
 ```
-torrocus@knuth:~$ apg -a 1 -m 64 -n 1
+$ apg -a 1 -m 64 -n 1
 zB;W&)dg(_1!{eZ@wBxkOO/x7<:DU5k]u3TW\aTgs.nK$rT\5"FKYBy(WKrpR-qA
 ```
 
@@ -188,7 +195,7 @@ Click here to see a apg parameter list.
 </summary>
 <p>
 
-```
+```console
 $ apg -h
 
 apg   Automated Password Generator
@@ -240,22 +247,24 @@ Click here to see how to install diceware.
 <p>
 Installing diceware:
 
-```
-sudo apt install diceware
+```console
+$ sudo apt install diceware
 ```
 </p>
 </details>
 <br>
 
 Running `diceware` generates a password that consists of 6 words (default).
-```
+
+```console
 $ diceware
 SlipsTrumpetSariWaxIdeaDare
 ```
 
 Of course, the number of words in the password can be changed.
-```
-diceware -n 10
+
+```console
+$ diceware -n 10
 SlamsZealWhoseTineLoomAnagramMossBrimBleatIsotope
 ```
 
@@ -263,7 +272,7 @@ An interesting option is the possibility of rolling real dice.
 I used this option once.
 As humans, I think we're too lazy.
 
-```
+```console
 $ diceware -r realdice
 Please roll 5 dice (or a single dice 5 times).
 What number shows dice number 1?
@@ -284,7 +293,8 @@ Click here to see a diceware parameter list.
 <p>
 
 The diceware parameter list is as follows:
-```
+
+```console
 $ diceware -h
 usage: diceware [-h] [-n NUM] [-c | --no-caps] [-s NUM] [-d DELIMITER]
                 [-r SOURCE] [-w NAME] [--dice-sides N] [-v] [--version]
@@ -324,6 +334,25 @@ Wordlists are stored in /usr/lib/python2.7/dist-packages/diceware/wordlists
 </details>
 <br>
 
+## Password manager
+
+Most password managers have a password generation feature.
+KeePassXC allows us to generate a password in the console.
+
+Generate a password with 32 alphanumeric characters.
+
+```console
+$ keepassxc-cli generate --lower --upper --numeric --length 32
+oQJHaq7WeuTMJpSrKb2FKvJKFkujYRgc
+```
+
+We can also generate a passphrase with 8 words.
+
+```console
+$ keepassxc-cli diceware --words 8
+alphabet shape dictate blog faster comprised correct math
+```
+
 ## Generating passwords in Ruby
 
 One way is to use the SecureRandom library.
@@ -331,6 +360,22 @@ One way is to use the SecureRandom library.
 ```ruby
 require 'securerandom'
 SecureRandom.alphanumeric(16)
+```
+
+The above Ruby code can be triggered from the command line.
+
+Generating a 16-character password.
+
+```console
+$ ruby -e "require 'securerandom'; puts SecureRandom.alphanumeric(16)"
+khcGT6LbcCHdW1xs
+```
+
+Generating a 32-character password.
+
+```console
+$ ruby -e "require 'securerandom'; puts SecureRandom.alphanumeric(32)"
+XysKQb3CFaZxviWJUlPuEweLniIQt8J3
 ```
 
 ## Is it worth using password generators?
