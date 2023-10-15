@@ -20,7 +20,8 @@ I believe that everyone will choose what best suits the real case.
 
 Recently, in the project,
 we added a new column to the users table related to the last seen date.
-The mechanism for completing this field while using the application has also been added.
+The mechanism for completing this field while using the application has
+also been added.
 However, not all users are so active.
 We want to backfill this column with dates.
 The necessary data is available from another source (possibly Snowflake).
@@ -68,6 +69,7 @@ So we get a pessimistic value of memory usage.
 ### First implementation
 
 We have a big CSV file whose structure looks like this:
+
 ```csv
 user_id,last_visit_at
 1,2021-08-15T20:00:00Z
@@ -109,7 +111,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 270.65
 Memory: 19.19 MB
 ```
@@ -124,7 +127,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 69.1
 Memory: 6.7 MB
 ```
@@ -141,7 +145,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 4.9
 Memory: 15.98 MB
 ```
@@ -160,7 +165,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 152.96
 Memory: 2336.32 MB
 ```
@@ -181,7 +187,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 38.58
 Memory: 2258.76 MB
 ```
@@ -227,7 +234,7 @@ Arrays with numbers take up less memory than hashes.
 
 Imagine the following example:
 
-```
+```csv
 user_id, last_seen_on
 1, 2021-08-15
 2, 2019-09-21
@@ -278,7 +285,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 24.31
 Memory: 143.16 MB
 ```
@@ -322,7 +330,8 @@ end
 ```
 
 The results are:
-```
+
+```text
 Time: 9933.15
 Memory: 291.14 MB
 ```
@@ -344,7 +353,7 @@ And ask the right questions.
 
 Below I present the logs after launching my solution in production.
 
-```
+```text
 Mon Aug 16 18:57:57 CEST 2021 Task started with ID 57cd08e0dae943a5b352c138193edbaf
 Mon Aug 16 18:58:44 CEST 2021 Running
 Mon Aug 16 22:11:44 CEST 2021 Downloading file from S3 bucket
