@@ -59,9 +59,9 @@ On my computer, it takes over a minute.
 ```shell
 $ time ruby lanternfish.rb
 
-real	1m25,829s
-user	1m13,931s
-sys	0m11,395s
+real    1m25,829s
+user    1m13,931s
+sys     0m11,395s
 ```
 
 The second part of the task requires 256 steps.
@@ -139,9 +139,9 @@ Does this little change affect the performance?
 ```shell
 $ time ruby lanternfish.rb
 
-real	0m0,083s
-user	0m0,066s
-sys	0m0,018s
+real    0m0,083s
+user    0m0,066s
+sys     0m0,018s
 ```
 
 65536 steps of simulation (much more steps than in the task):
@@ -149,9 +149,9 @@ sys	0m0,018s
 ```shell
 $ time ruby lanternfish.rb
 
-real	0m0,597s
-user	0m0,584s
-sys	0m0,012s
+real    0m0,597s
+user    0m0,584s
+sys     0m0,012s
 ```
 
 As you can see, this solution is as simple as the first.
