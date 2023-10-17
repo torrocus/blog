@@ -110,6 +110,8 @@ I stopped all Dockers.
 
 ```console
 $ sudo systemctl stop docker.service
+Warning: Stopping docker.service, but it can still be activated by:
+  docker.socket
 $ sudo systemctl stop docker.socket
 ```
 
@@ -117,12 +119,14 @@ Alternatively, you can also use `service` command.
 
 ```console
 $ sudo service docker stop
+Warning: Stopping docker.service, but it can still be activated by:
+  docker.socket
 ```
 
 In the `/lib/systemd/system/docker.service` file
 in the `ExecStart` line I added the `-g` option.
 
-```
+```text
 ExecStart=/usr/bin/dockerd -g /larger-partition/new-path/docker -H fd:// --containerd=/run/containerd/containerd.sock
 ```
 
