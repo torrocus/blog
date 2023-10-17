@@ -32,16 +32,19 @@ PentaxAlsopwigwamsunsureexplorationsupposedlyattiresignalling
 This idea is taken from [Stack Overflow][stack-overflow].
 I strongly advise against generating a password in this way.
 
-
 ### pwgen
 
 Pwgen is a tool for automatic password generation.
 Pwgen generates random, meaningless but pronounceable passwords.
-The term pronounceable and a password of several dozen letters are in my opinion an oxymoron.
-The generated passwords include only lowercase letters, or upper and lower case mixed, or digits.
-For better memorization, capital letters and numbers are placed in the appropriate positions.
+The term pronounceable and a password of several dozen letters
+are in my opinion an oxymoron.
+The generated passwords include only lowercase letters, or upper
+and lower case mixed, or digits.
+For better memorization, capital letters and numbers are placed
+in the appropriate positions.
 It gives the impression of constructed words.
-The pwgen command with no parameters will generate 160 eight-characters passwords.
+The pwgen command with no parameters will generate 160 eight-characters
+passwords.
 Usually, one password is needed.
 Moreover, eight letters in a password are definitely not enough.
 
@@ -54,7 +57,24 @@ Installing pwgen:
 
 ```console
 $ sudo apt install pwgen
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  pwgen
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 17,4 kB of archives.
+After this operation, 53,2 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu lunar/universe amd64 pwgen amd64 2.08-2build1 [17,4 kB]
+Fetched 17,4 kB in 0s (81,5 kB/s)
+Selecting previously unselected package pwgen.
+(Reading database ... 351738 files and directories currently installed.)
+Preparing to unpack .../pwgen_2.08-2build1_amd64.deb ...
+Unpacking pwgen (2.08-2build1) ...
+Setting up pwgen (2.08-2build1) ...
+Processing triggers for man-db (2.11.2-1) ...
 ```
+
 </p>
 </details>
 <br>
@@ -82,7 +102,6 @@ $ pwgen 64 1
 eem1Aighehupuaphie5eo5Apah3baataegahxiec3quenaeMieH6eiMaj9hai0Oh
 ```
 
-
 <details>
 <summary>
 Click here to see a pwgen parameter list.
@@ -95,40 +114,39 @@ Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
 
 Options supported by pwgen:
   -c or --capitalize
-	Include at least one capital letter in the password
+        Include at least one capital letter in the password
   -A or --no-capitalize
-	Don't include capital letters in the password
+        Don't include capital letters in the password
   -n or --numerals
-	Include at least one number in the password
+        Include at least one number in the password
   -0 or --no-numerals
-	Don't include numbers in the password
+        Don't include numbers in the password
   -y or --symbols
-	Include at least one special symbol in the password
+        Include at least one special symbol in the password
   -r <chars> or --remove-chars=<chars>
-	Remove characters from the set of characters to generate passwords
+        Remove characters from the set of characters to generate passwords
   -s or --secure
-	Generate completely random passwords
+        Generate completely random passwords
   -B or --ambiguous
-	Don't include ambiguous characters in the password
+        Don't include ambiguous characters in the password
   -h or --help
-	Print a help message
+        Print a help message
   -H or --sha1=path/to/file[#seed]
-	Use sha1 hash of given file as a (not so) random generator
+        Use sha1 hash of given file as a (not so) random generator
   -C
-	Print the generated passwords in columns
+        Print the generated passwords in columns
   -1
-	Don't print the generated passwords in columns
+        Don't print the generated passwords in columns
   -v or --no-vowels
-	Do not use any vowels so as to avoid accidental nasty words
+        Do not use any vowels so as to avoid accidental nasty words
 ```
+
 </p>
 </details>
 <br>
 
-
 Regarding security, I think it's worth reading the [Anarcat post][anarcat-about-passwords].
 The author strongly advises against using pwgen.
-
 
 ### apg
 
@@ -143,7 +161,24 @@ Installing apg:
 
 ```console
 $ sudo apt install apg
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  apg
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 41,3 kB of archives.
+After this operation, 117 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu jammy/main amd64 apg amd64 2.2.3.dfsg.1-5build2 [41,3 kB]
+Fetched 41,3 kB in 0s (195 kB/s)
+Selecting previously unselected package apg.
+(Reading database ... 400219 files and directories currently installed.)
+Preparing to unpack .../apg_2.2.3.dfsg.1-5build2_amd64.deb ...
+Unpacking apg (2.2.3.dfsg.1-5build2) ...
+Setting up apg (2.2.3.dfsg.1-5build2) ...
+Processing triggers for man-db (2.10.2-1) ...
 ```
+
 </p>
 </details>
 <br>
@@ -157,7 +192,7 @@ This second algorithm has 35 configurable operating modes.
 
 The apg command generates several passwords by default.
 
-```
+```console
 $ apg
 ^ovWiffAsdelv1 (CIRCUMFLEX-ov-Wiff-As-delv-ONE)
 Opp\knis8 (Opp-BACKSLASH-knis-EIGHT)
@@ -183,11 +218,10 @@ riWrovDisickuAbpoovhyijyatyicdoupIalneDrojeuvwochanVafJeucgutoob
 
 And the parameter `-a 1` uses the second algorithm:
 
-```
+```console
 $ apg -a 1 -m 64 -n 1
 zB;W&)dg(_1!{eZ@wBxkOO/x7<:DU5k]u3TW\aTgs.nK$rT\5"FKYBy(WKrpR-qA
 ```
-
 
 <details>
 <summary>
@@ -229,16 +263,16 @@ apg   [-a algorithm] [-r file]
 -h              print this help screen
 -v              print version information
 ```
+
 </p>
 </details>
 <br>
 
 This solution is a bit outdated but still available in packages.
 
-
 ### diceware
 
-Diceware creates memorizable passphrases from wordlists and various sources of randomness.
+[Diceware][diceware] creates memorizable passphrases from wordlists and various sources of randomness.
 
 <details>
 <summary>
@@ -249,7 +283,24 @@ Installing diceware:
 
 ```console
 $ sudo apt install diceware
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  diceware
+0 upgraded, 1 newly installed, 0 to remove and 2 not upgraded.
+Need to get 98,7 kB of archives.
+After this operation, 408 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu jammy/universe amd64 diceware all 0.9.6-1 [98,7 kB]
+Fetched 98,7 kB in 0s (458 kB/s)
+Selecting previously unselected package diceware.
+(Reading database ... 399541 files and directories currently installed.)
+Preparing to unpack .../diceware_0.9.6-1_all.deb ...
+Unpacking diceware (0.9.6-1) ...
+Setting up diceware (0.9.6-1) ...
+Processing triggers for man-db (2.10.2-1) ...
 ```
+
 </p>
 </details>
 <br>
@@ -284,7 +335,6 @@ SoundLimaQuakeCaptainPrudeFrost
 Such passwords are probably easier to remember.
 Are these passwords more secure?
 This is a matter for discussion.
-
 
 <details>
 <summary>
@@ -330,6 +380,7 @@ Arguments related to `realdice' randomsource:
 
 Wordlists are stored in /usr/lib/python2.7/dist-packages/diceware/wordlists
 ```
+
 </p>
 </details>
 <br>
@@ -383,7 +434,6 @@ XysKQb3CFaZxviWJUlPuEweLniIQt8J3
 Yes of course.
 Mainly because each of us has our own behavioral profile.
 It's easier to crack a person than a strong password.
-
 
 ---
 
