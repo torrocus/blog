@@ -55,7 +55,7 @@ The important thing is that it consists of several repetitive parts.
 
 I will replace some code fragments with letters.
 
-```
+```text
 a => authToken
 b => value
 x => setInvalidToken(true);
