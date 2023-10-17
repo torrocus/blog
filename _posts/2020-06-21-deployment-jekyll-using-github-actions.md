@@ -9,7 +9,8 @@ title: Building site based on Jekyll 4.2 using GitHub Actions
 ---
 
 Today I decided to check feature [GitHub Actions][github-actions].
-My goal is to prepare configuration for GitHub Actions and publish a site based on [Jekyll][jekyll] 4.2
+My goal is to prepare configuration for GitHub Actions and publish a site based
+on [Jekyll][jekyll] 4.2
 
 ## GitHub Pages uses Jekyll 3.9
 
@@ -20,7 +21,7 @@ Edit `.ruby-version` file, then run `bundle install`.
 And finally, run jekyll server: `jekyll s`.
 It's failed, a message popped up:
 
-```
+```text
 jekyll 3.9.0 | Error:  no implicit conversion of Hash into Integer
 /home/torrocus/.rvm/gems/ruby-3.0.0@blog/gems/pathutil-0.16.2/lib/pathutil.rb:502:in `read': no implicit conversion of Hash into Integer (TypeError)
 ```
@@ -51,6 +52,7 @@ To generate the key go to **Settings** in your GitHub profile.
 Then go to **Developer settings** and then go to [Personal access tokens][github-personal-access-tokens].
 Click **Generate new token** button and confirm your GitHub password.
 Fill out the form **New personal access token** as follows:
+
 - Note: _GitHub Actions_
 - Select checkbox _public_repo_
 - Click **Generate token**
@@ -59,7 +61,9 @@ A new GitHub API key will appear, so copy it.
 You have to paste it elsewhere, so if you lose it, you have to repeat the process.
 
 Now go to the repository **Settings** and go to the **Secrets** settings.
-Click the **New secret** button and fill in the **Secrets / New secret** form as below:
+Click the **New secret** button
+and fill in the **Secrets / New secret** form as below:
+
 - Name: JEKYLL_PAT
 - Value: _paste the copied GitHub Actions key here_
 - Click **Add secret**
@@ -68,6 +72,7 @@ Settings on the GitHub side are almost ready.
 Now you need to prepare the configuration on the repository side.
 
 Configuration file `.github/workflows/deployment.yml`:
+
 ```yaml
 {% raw %}name: deployment
 
@@ -101,7 +106,7 @@ The name of this process is _deployment_
 After selecting the process name (in this case _deployment_) and commit name,
 you can see the GitHub Action process workflow.
 
-```
+```text
 ▶ ✓ Set up job
 ▶ ✓ Build helaili/jekyll-action@2.0.3
 ▶ ✓ Run actions/checkout@v2
@@ -116,7 +121,7 @@ If everything is green, it means that the whole process was successful.
 If any step fails, you need to read the detailed information for that step.
 A good practice is to add a badge to the README file.
 
-```
+```markdown
 ![Build and deploy](https://github.com/USER/REPO/workflows/WORKFLOW/badge.svg)
 ```
 
@@ -193,7 +198,8 @@ Below is a preview of passing and failing badges.
   </g>
 </svg>
 
-In most cases, the above instructions should allow you to build static websites based on Jekyll on GitHub Actions.
+In most cases, the above instructions should allow you to build
+static websites based on Jekyll on GitHub Actions.
 This blog also uses this configuration.
 
 ---
@@ -206,13 +212,16 @@ There have been various problems recently.
 
 Your Jekyll site is working locally.
 You used GitHub Actions to build it, but finally got this message:
-```
+
+```text
 fatal: could not read Password for 'https://***@github.com': No such device or address
 ```
+
 This means that you need to reset the GitHub Actions token.
 
 ### Simple dictionary
-+ **JEKYLL_PAT** - Jekyll Personal Access Token
+
+- **JEKYLL_PAT** - Jekyll Personal Access Token
 
 [github-actions]: https://github.com/features/actions
 [github-pages-dependency-versions]: https://pages.github.com/versions/
