@@ -16,30 +16,33 @@ GitHub probably also likes such games.
 I noticed that my friend's profile on GitHub looks different from mine.
 I took a closer look at this.
 It turned out that GitHub introduced a secret, special repository.
-For a special repository to be displayed in the user profile, two conditions must be met.
+For a special repository to be displayed in the user profile,
+two conditions must be met.
 
 ## The name of your special repository
 
-The message that appears on GitHub after discovering the secret looks something like this:
+The message that appears on GitHub after discovering the secret looks something
+like this:
 
-> You found a secret! **USERNAME/USERNAME** is a ✨ _special_ ✨ repository that you can use to add a
-> `README.md` to your GitHub profile. Make sure it’s public and initialize it with a **README** to get
-> started.
+> You found a secret! **USERNAME/USERNAME** is a ✨ _special_ ✨ repository
+> that you can use to add a `README.md` to your GitHub profile.
+> Make sure it’s public and initialize it with a **README** to get started.
 
 To clarify, **USERNAME** is your GitHub username.
 Your secret GitHub repository has the same name.
 
-In my case, after entering my username as the repository name, the message looked exactly like this:
+In my case, after entering my username as the repository name,
+the message looked exactly like this:
 
 ---
 
-You found a secret! **torrocus/torrocus** is a ✨ _special_ ✨ repository that you can use to add a
-`README.md` to your GitHub profile. Make sure it’s public and initialize it with a **README** to get
-started.
+You found a secret! **torrocus/torrocus** is a ✨ _special_ ✨ repository
+that you can use to add a `README.md` to your GitHub profile.
+Make sure it’s public and initialize it with a **README** to get started.
 
 ---
 
-### You found a secret!
+### You found a secret
 
 Because this is a secret, the above message appears if and only if
 the repository name is exactly as the GitHub username.
@@ -48,19 +51,22 @@ the repository name is exactly as the GitHub username.
 
 ## README file in your special repository
 
-Before pressing the **Create repository** button, it's worth checking the checkbox like below.
+Before pressing the **Create repository** button,
+it's worth checking the checkbox like below.
 
 [✓] Initialize this repository with a README
 
 Then, when creating the repo, the first commit with the README.md file will be created.
 The content of this file is as follows:
 
-**README.md**
-```
+File **README.md**
+
+```markdown
 ### Hi there 👋
 
 <!--
-**torrocus/torrocus** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**torrocus/torrocus** is a ✨ _special_ ✨ repository because its `README.md`
+(this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
@@ -81,13 +87,15 @@ And it gives the effect as in the screenshot below:
 
 ## Features of the special repository
 
-In most cases, the README file in this "secret repo" behaves like any other markdown file.
+In most cases, the README file in this "secret repo" behaves
+like any other markdown file.
 For now, I'm still testing the features of this repository.
 I noticed the following properties.
 
 ### Interpretation of markdown syntax
 
 + Support headers (six levels of section headings)
+
   ```markdown
   # Header with <h1> tag
   ## Header with <h2> tag
@@ -97,21 +105,24 @@ I noticed the following properties.
   ##### Header with <h5> tag
   ###### Header with <h6> tag
   ```
+
 + Support for emphasis text and its combinations
-  * **bold text**,
-  * _italic text_,
-  * ~~stricken text~~
-  * **bold and _italic text_**
-  * _italic and **bold text**_
+  + **bold text**,
+  + _italic text_,
+  + ~~stricken text~~
+  + **bold and _italic text_**
+  + _italic and **bold text**_
 + List support:
-  * ordered list
-  * unordered list
+  + ordered list
+  + unordered list
 + Support for tables in ASCII format
 + Support blockquotes
+
   ```markdown
   Benjamin Franklin said:
   > Three may keep a secret if two of them are dead.
   ```
+
 + Automatic linking for URLs.
   Using the correct URL in the text will create a link.
 + Support a code snippet in the body of the text.
@@ -122,12 +133,14 @@ I noticed the following properties.
   `https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE`
 + Support `<details>` and `<summary>` tags.
   You can make the profile more interactive.
+
   ```markdown
   <details open>
     <summary>Technologies</summary>
     <p>...</p>
   </details>
   ```
+
   There is a <a name='details-problem'>small problem with details</a>.
   After `</details>` tag, enter the additional enter character.
   Otherwise, Markdown is interpreted incorrectly in the next line.
@@ -157,11 +170,13 @@ But a demanding GitHub user will notice several problems.
 
 Images are displayed when I give the full path to them.
 The code in Markdown looks something like this:
+
 ```markdown
 ![ALT TEXT](https://raw.githubusercontent.com/torrocus/torrocus/master/IMAGE)
 ```
 
 GitHub converted the above Markdown code to HTML as follows:
+
 ```html
 <a target="_blank"
    rel="noopener noreferrer"
@@ -177,8 +192,6 @@ In that case it's possible to overwrite the link associated with the image.
 
 I treat it as an experiment and fun, so I don't have any special expectations.
 
-
 [animation-about-secret-repo]: {{ 'assets/images/special-github-repository/create-secret-repository.gif' | relative_url }}
 [image-after-create-secret-repo]: {{ 'assets/images/special-github-repository/after-create-secret-repository.png' | relative_url }}
 [github-html-blocks]: https://github.github.com/gfm/#html-blocks
-
