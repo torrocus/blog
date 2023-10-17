@@ -21,15 +21,18 @@ HEIC means a High Efficiency Image Coding.
 
 ## Installation process
 
-I always check that I am up to date with packages on the system before starting the installation.
-```
+I always check that I am up to date with packages on the system before starting
+the installation.
+
+```console
 sudo apt update
 sudo apt upgrade
 ```
 
 The following packages will come in handy to compile from source,
 maintain the git repository and download files.
-```
+
+```console
 sudo apt install -y build-essential curl git
 ```
 
@@ -37,7 +40,8 @@ sudo apt install -y build-essential curl git
 <!-- sudo apt build-dep -y imagemagick -->
 
 Development packages to support various **image file formats**.
-```
+
+```console
 sudo apt install -y \
          libde265-dev \
          libjpeg-dev \
@@ -55,7 +59,7 @@ Click here to see the installation of these packages.
 <p>
 In my case, I already had these packages on my system.
 
-```
+```console
 $ sudo apt install -y libde265-dev libjpeg-dev libopenjp2-7-dev librsvg2-dev libwebp-dev libx265-dev
 Reading package lists... Done
 Building dependency tree
@@ -75,17 +79,20 @@ libde265-dev is already the newest version (1.0.4-1~ppa1~ubuntu18.04.1).
 
 Now it's time for the HEIF library.
 Download the git repository.
-```
+
+```console
 git clone https://github.com/strukturag/libheif.git
 ```
 
 Go to the repo directory.
-```
+
+```console
 cd libheif
 ```
 
 Call the script `autogen.sh`
-```
+
+```console
 ./autogen.sh
 ```
 
@@ -95,7 +102,7 @@ Click here to see the autogen.sh script call.
 </summary>
 <p>
 
-```
+```console
 $ ./autogen.sh
 Installing pre-commit hook ...
 autoreconf: Entering directory `.'
@@ -127,7 +134,8 @@ autoreconf: Leaving directory `.'
 <br>
 
 Call the script `configure`
-```
+
+```console
 ./configure
 ```
 
@@ -137,7 +145,7 @@ Click here to see the configure call.
 </summary>
 <p>
 
-```
+```console
 $ ./configure
 checking build system type... x86_64-pc-linux-gnu
 checking host system type... x86_64-pc-linux-gnu
@@ -308,7 +316,8 @@ config.status: executing depfiles commands
 <br>
 
 Call `make` to compile & test HEIF library.
-```
+
+```console
 make
 ```
 
@@ -496,7 +505,8 @@ make[1]: Leaving directory '/home/torrocus/heif/libheif'
 The compiled libraries can be found in the `libheif/.libs` subfolder.
 
 Install HEIF library in Linux system.
-```
+
+```console
 sudo make install
 ```
 
@@ -506,7 +516,7 @@ Click here to see the installation process.
 </summary>
 <p>
 
-```
+```console
 $ sudo make install
 [sudo] password for torrocus:
 Making install in libheif
@@ -651,34 +661,40 @@ make[1]: Leaving directory '/home/torrocus/heif/libheif'
 <br>
 
 Exit the `libheif` folder.
-```
+
+```console
 cd ..
 ```
 
 ### Image Magick
 
 Download the Image Magick.
-```
+
+```console
 curl https://imagemagick.org/archive/ImageMagick.tar.gz -o ImageMagick.tar.gz
 ```
 
 Unpack the ImageMagick.tar.gz archive.
-```
+
+```console
 tar xzf ImageMagick.tar.gz
 ```
 
 Rename folder to name without version number.
-```
+
+```console
 mv ImageMagick-7.0.10-29 ImageMagick
 ```
 
 Go to the ImageMagick directory.
-```
+
+```console
 cd ImageMagick
 ```
 
 Call the script `configure` for Image Magick.
-```
+
+```console
 ./configure
 ```
 
@@ -688,7 +704,7 @@ Click here to see ImageMagick configure call.
 </summary>
 <p>
 
-```
+```console
 $ ./configure
 checking build system type... x86_64-pc-linux-gnu
 checking host system type... x86_64-pc-linux-gnu
@@ -1525,28 +1541,33 @@ Options used to compile and link:
 </details>
 <br>
 
-Now it is worth stopping for a moment and checking if everything is going as planned.
+Now it is worth stopping for a moment and checking
+if everything is going as planned.
 In my case, when I did it for the first time, not everything went well.
-Admittedly, after compiling the new version, Image Magick already supported HEIF / HEIC files.
+Admittedly, after compiling the new version,
+Image Magick already supported HEIF / HEIC files.
 But it stopped recognizing JPG files.
 It was unintentional and had to be repeated all over again.
 Please note the option DELEGATES.
 The DELEGATES option is displayed in the last lines.
 
 Here's what it looked like for me the first and second time.
-```
+
+```diff
 -  DELEGATES       = bzlib mpeg fontconfig freetype heic openjp2 png ps webp x xml zlib
 +  DELEGATES       = bzlib mpeg fontconfig freetype heic jng jpeg openjp2 png ps webp x xml zlib
 ```
 
 The correct configuration should include the line:
-```
+
+```text
 checking if JPEG package is complete... yes
 ```
+
 This is true for any format we're going to support.
 Just in case configure can be called with parameters.
 
-```
+```console
 ./configure \
   --with-heic=yes \
   --with-jpeg=yes \
@@ -1560,9 +1581,10 @@ Just in case configure can be called with parameters.
 Click here to see configure call with parameters.
 </summary>
 <p>
-In my case, adding these parameters did not change anything, which makes me very happy.
+In my case, adding these parameters did not change anything,
+which makes me very happy.
 
-```
+```console
 $ ./configure \
 >   --with-heic=yes \
 >   --with-jpeg=yes \
@@ -2408,7 +2430,8 @@ Options used to compile and link:
 
 
 Call `make` to compile & test Image Magick.
-```
+
+```console
 make
 ```
 
@@ -2418,7 +2441,7 @@ Click here to see make command in Image Magick.
 </summary>
 <p>
 
-```
+```console
 $ make
 make  all-am
 make[1]: Entering directory '/home/torrocus/heif/ImageMagick'
@@ -2702,7 +2725,8 @@ make[1]: Leaving directory '/home/torrocus/heif/ImageMagick'
 <br>
 
 Here is the one line I missed on the first compilation.
-```
+
+```diff
 +  CC       coders/MagickCore_libMagickCore_7_Q16HDRI_la-jpeg.lo
 ```
 
@@ -2710,7 +2734,7 @@ The next step is to install ImageMagick on my system.
 Before installing it on my system,
 I already had the ImageMagick version installed from Debian packages.
 
-```
+```console
 $ identify --version
 Version: ImageMagick 6.9.7-4 Q16 x86_64 20170114 http://www.imagemagick.org
 Copyright: © 1999-2017 ImageMagick Studio LLC
@@ -2723,7 +2747,8 @@ But don't worry.
 Two versions will be available after installation.
 
 Install compiled Image Magick in Linux system.
-```
+
+```console
 sudo make install
 ```
 
@@ -2733,7 +2758,7 @@ Click here to see the installation of Image Magick 7.x.
 </summary>
 <p>
 
-```
+```console
 $ sudo make install
 [sudo] password for torrocus:
 make  install-am
@@ -3869,7 +3894,8 @@ make[1]: Leaving directory '/home/torrocus/heif/ImageMagick'
 <br>
 
 After installation, I check the Image Magick version.
-```
+
+```console
 $ identify --version
 Version: ImageMagick 7.0.10-29 Q16 x86_64 2020-09-13 https://imagemagick.org
 Copyright: © 1999-2020 ImageMagick Studio LLC
@@ -3885,15 +3911,17 @@ So the `identify` command from version 6.x is available from `identify-im6`.
 
 Now it's time to configure dynamic linker run-time bindings.
 Just run `ldconfig` command as root.
-```
+
+```console
 sudo ldconfig
 ```
 
 ### Uninstall Image Magick
 
-There may be times when you want to revert to the previous version of Image Magick.
+There may be times when you want to revert to the previous version
+of Image Magick.
 
-```
+```console
 sudo make uninstall
 ```
 
@@ -3903,7 +3931,7 @@ Click here to see uninstall call.
 </summary>
 <p>
 
-```
+```console
 $ sudo make uninstall
 [sudo] password for torrocus:
  ( cd '/usr/local/include/ImageMagick-7/MagickCore' && rm -f MagickCore.h animate.h annotate.h artifact.h attribute.h blob.h cache.h cache-view.h channel.h cipher.h client.h coder.h color.h colormap.h colorspace.h compare.h composite.h compress.h configure.h constitute.h decorate.h delegate.h deprecate.h display.h distort.h distribute-cache.h draw.h effect.h enhance.h exception.h feature.h fourier.h fx.h gem.h geometry.h histogram.h identify.h image.h image-view.h layer.h linked-list.h list.h locale_.h log.h magic.h magick.h magick-config.h magick-type.h matrix.h memory_.h method-attribute.h methods.h mime.h module.h monitor.h montage.h morphology.h nt-base.h opencl.h option.h paint.h pixel.h pixel-accessor.h policy.h prepress.h profile.h property.h quantize.h quantum.h random_.h registry.h resample.h resize.h resource_.h segment.h semaphore.h shear.h signature.h splay-tree.h static.h statistic.h stream.h string_.h studio.h timer.h token.h transform.h threshold.h type.h utility.h version.h vision.h visual-effects.h widget.h xml-tree.h xwindow.h )
@@ -3939,20 +3967,21 @@ done
 </p>
 </details>
 
-
 ## Using HEIF in Ruby
 
 Run gem install command.
-```
+
+```console
 gem install mini_magick
 ```
 
 Or add the gem to Gemfile.
-```
+
+```ruby
 gem 'mini_magick'
 ```
 
-```
+```ruby
 require 'mini_magick'
 
 image = MiniMagick::Image.open('example.heic')
