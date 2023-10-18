@@ -47,6 +47,7 @@ Make sure it’s public and initialize it with a **README** to get started.
 Because this is a secret, the above message appears if and only if
 the repository name is exactly as the GitHub username.
 
+<!-- markdownlint-disable-next-line MD052 -->
 ![Animation revealing a special repository][animation-about-secret-repo]
 
 ## README file in your special repository
@@ -83,6 +84,7 @@ Here are some ideas to get you started:
 
 And it gives the effect as in the screenshot below:
 
+<!-- markdownlint-disable-next-line MD052 -->
 ![After create secret repository][image-after-create-secret-repo]
 
 ## Features of the special repository
@@ -141,6 +143,7 @@ I noticed the following properties.
   </details>
   ```
 
+  <!-- markdownlint-disable-next-line MD033 -->
   There is a <a name='details-problem'>small problem with details</a>.
   After `</details>` tag, enter the additional enter character.
   Otherwise, Markdown is interpreted incorrectly in the next line.
@@ -192,6 +195,9 @@ In that case it's possible to overwrite the link associated with the image.
 
 I treat it as an experiment and fun, so I don't have any special expectations.
 
+<!-- markdownlint-disable-next-line MD013 -->
 [animation-about-secret-repo]: {{ 'assets/images/special-github-repository/create-secret-repository.gif' | relative_url }}
+<!-- markdownlint-disable-next-line MD013 -->
 [image-after-create-secret-repo]: {{ 'assets/images/special-github-repository/after-create-secret-repository.png' | relative_url }}
+<!-- markdownlint-disable-next-line MD034 MD053 -->
 [github-html-blocks]: https://github.github.com/gfm/#html-blocks
