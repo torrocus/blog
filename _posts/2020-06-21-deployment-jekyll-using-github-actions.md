@@ -21,10 +21,13 @@ Edit `.ruby-version` file, then run `bundle install`.
 And finally, run jekyll server: `jekyll s`.
 It's failed, a message popped up:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-configure-file { "MD013": { "line_length": 150 } } -->
 ```text
 jekyll 3.9.0 | Error:  no implicit conversion of Hash into Integer
 /home/torrocus/.rvm/gems/ruby-3.0.0@blog/gems/pathutil-0.16.2/lib/pathutil.rb:502:in `read': no implicit conversion of Hash into Integer (TypeError)
 ```
+<!-- markdownlint-restore -->
 
 Googling the phrase
 "jekyll 3.9.0 | Error:  no implicit conversion of Hash into Integer"
@@ -130,6 +133,8 @@ Where **USER** is the username,
 and **WORKFLOW** is the name of the GitHub Action process.
 Below is a preview of passing and failing badges.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 MD033 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="142" height="20">
   <defs>
     <linearGradient id="workflow-fill" x1="50%" y1="0%" x2="50%" y2="100%">
@@ -197,6 +202,7 @@ Below is a preview of passing and failing badges.
     <path fill="#959DA5" d="M11 3c-3.868 0-7 3.132-7 7a6.996 6.996 0 0 0 4.786 6.641c.35.062.482-.148.482-.332 0-.166-.01-.718-.01-1.304-1.758.324-2.213-.429-2.353-.822-.079-.202-.42-.823-.717-.99-.245-.13-.595-.454-.01-.463.552-.009.946.508 1.077.718.63 1.058 1.636.76 2.039.577.061-.455.245-.761.446-.936-1.557-.175-3.185-.779-3.185-3.456 0-.762.271-1.392.718-1.882-.07-.175-.315-.892.07-1.855 0 0 .586-.183 1.925.718a6.5 6.5 0 0 1 1.75-.236 6.5 6.5 0 0 1 1.75.236c1.338-.91 1.925-.718 1.925-.718.385.963.14 1.68.07 1.855.446.49.717 1.112.717 1.882 0 2.686-1.636 3.28-3.194 3.456.254.219.473.639.473 1.295 0 .936-.009 1.689-.009 1.925 0 .184.131.402.481.332A7.011 7.011 0 0 0 18 10c0-3.867-3.133-7-7-7z"></path>
   </g>
 </svg>
+<!-- markdownlint-restore -->
 
 In most cases, the above instructions should allow you to build
 static websites based on Jekyll on GitHub Actions.
