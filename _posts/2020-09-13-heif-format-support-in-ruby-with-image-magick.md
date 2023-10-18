@@ -741,7 +741,7 @@ Click here to see ImageMagick configure call.
 <p>
 
 <!-- markdownlint-capture -->
-<!-- markdownlint-disable MD010 MD013 -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ ./configure
 checking build system type... x86_64-pc-linux-gnu
@@ -1485,71 +1485,71 @@ Build system type: x86_64-pc-linux-gnu
 
                Option                        Value
 ------------------------------------------------------------------------------
-Shared libraries  --enable-shared=yes		yes
-Static libraries  --enable-static=yes		yes
-Build utilities   --with-utilities=yes		yes
-Module support    --with-modules=no		no
-GNU ld            --with-gnu-ld=yes		yes
-Quantum depth     --with-quantum-depth=16	16
+Shared libraries  --enable-shared=yes          yes
+Static libraries  --enable-static=yes          yes
+Build utilities   --with-utilities=yes         yes
+Module support    --with-modules=no            no
+GNU ld            --with-gnu-ld=yes            yes
+Quantum depth     --with-quantum-depth=16      16
 High Dynamic Range Imagery
-                  --enable-hdri=yes		yes
+                  --enable-hdri=yes            yes
 
-Install documentation:				yes
+Install documentation:                         yes
 
 Memory allocation library:
-  JEMalloc          --with-jemalloc=no		no
-  TCMalloc          --with-tcmalloc=no		no
-  UMem              --with-umem=no		no
+  JEMalloc          --with-jemalloc=no         no
+  TCMalloc          --with-tcmalloc=no         no
+  UMem              --with-umem=no             no
 
 Delegate library configuration:
-  BZLIB             --with-bzlib=yes		yes
-  Autotrace         --with-autotrace=no		no
-  DJVU              --with-djvu=yes		no
-  DPS               --with-dps=yes		no
-  FFTW              --with-fftw=yes		no
-  FLIF              --with-flif=yes		no
-  FlashPIX          --with-fpx=yes		no
-  FontConfig        --with-fontconfig=yes	yes
-  FreeType          --with-freetype=yes		yes
-  Ghostscript lib   --with-gslib=no		no
-  Graphviz          --with-gvc=yes		no
-  HEIC              --with-heic=yes             yes
-  JBIG              --with-jbig=yes		no
-  JPEG v1           --with-jpeg=yes		yes
-  JPEG XL           --with-jxl=yes    no
-  LCMS              --with-lcms=yes		no
-  LQR               --with-lqr=yes		no
-  LTDL              --with-ltdl=yes		yes
-  LZMA              --with-lzma=yes		no
-  Magick++          --with-magick-plus-plus=yes	yes
-  OpenEXR           --with-openexr=yes		no
-  OpenJP2           --with-openjp2=yes		yes
-  PANGO             --with-pango=yes		no
-  PERL              --with-perl=no		no
-  PNG               --with-png=yes		yes
-  RAQM              --with-raqm=yes		no
-  RAW               --with-raw=yes 	   	no
-  RSVG              --with-rsvg=no		no
-  TIFF              --with-tiff=yes		no
-  WEBP              --with-webp=yes		yes
-  WMF               --with-wmf=yes		no
-  X11               --with-x=			yes
-  XML               --with-xml=yes		yes
-  ZIP               --with-ziplib=yes		no
-  ZLIB              --with-zlib=yes		yes
-  ZSTD              --with-zstd=yes		no
+  BZLIB             --with-bzlib=yes           yes
+  Autotrace         --with-autotrace=no        no
+  DJVU              --with-djvu=yes            no
+  DPS               --with-dps=yes             no
+  FFTW              --with-fftw=yes            no
+  FLIF              --with-flif=yes            no
+  FlashPIX          --with-fpx=yes             no
+  FontConfig        --with-fontconfig=yes      yes
+  FreeType          --with-freetype=yes        yes
+  Ghostscript lib   --with-gslib=no            no
+  Graphviz          --with-gvc=yes             no
+  HEIC              --with-heic=yes            yes
+  JBIG              --with-jbig=yes            no
+  JPEG v1           --with-jpeg=yes            yes
+  JPEG XL           --with-jxl=yes             no
+  LCMS              --with-lcms=yes            no
+  LQR               --with-lqr=yes             no
+  LTDL              --with-ltdl=yes            yes
+  LZMA              --with-lzma=yes            no
+  Magick++          --with-magick-plus-plus=yes yes
+  OpenEXR           --with-openexr=yes         no
+  OpenJP2           --with-openjp2=yes         yes
+  PANGO             --with-pango=yes           no
+  PERL              --with-perl=no             no
+  PNG               --with-png=yes             yes
+  RAQM              --with-raqm=yes            no
+  RAW               --with-raw=yes             no
+  RSVG              --with-rsvg=no             no
+  TIFF              --with-tiff=yes            no
+  WEBP              --with-webp=yes            yes
+  WMF               --with-wmf=yes             no
+  X11               --with-x=                  yes
+  XML               --with-xml=yes             yes
+  ZIP               --with-ziplib=yes          no
+  ZLIB              --with-zlib=yes            yes
+  ZSTD              --with-zstd=yes            no
 
 Delegate program configuration:
-  GhostPCL          None			pcl6 (unknown)
-  GhostXPS          None			gxps (unknown)
-  Ghostscript       None			gs (9.26)
+  GhostPCL          None                       pcl6 (unknown)
+  GhostXPS          None                       gxps (unknown)
+  Ghostscript       None                       gs (9.26)
 
 Font configuration:
   Apple fonts       --with-apple-font-dir=default
-  Dejavu fonts      --with-dejavu-font-dir=default	none
-  Ghostscript fonts --with-gs-font-dir=default		/usr/share/fonts/type1/gsfonts/
-  URW-base35 fonts  --with-urw-base35-font-dir=default	none
-  Windows fonts     --with-windows-font-dir=default	none
+  Dejavu fonts      --with-dejavu-font-dir=default     none
+  Ghostscript fonts --with-gs-font-dir=default         /usr/share/fonts/type1/gsfonts/
+  URW-base35 fonts  --with-urw-base35-font-dir=default none
+  Windows fonts     --with-windows-font-dir=default    none
 
 X11 configuration:
   X_CFLAGS        =
