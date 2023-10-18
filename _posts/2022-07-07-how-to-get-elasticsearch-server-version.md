@@ -63,10 +63,13 @@ $ curl -sS 'localhost:9200?filter_path=version.number&pretty=false'
 
 Now we can use `awk` to select just the version number of ElasticSearch.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```shell
 $ curl -sS 'localhost:9200?filter_path=version.number&pretty=false' | awk -F'"' {'print $6'}
 6.8.0
 ```
+<!-- markdownlint-restore -->
 
 ## ElasticSearch version in Ruby
 
@@ -74,6 +77,8 @@ In Ruby we can use the ElasticSearch Ruby client.
 We will use the class `Elasticsearch::Client`,
 whose instance has an info method.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```ruby
 [1] pry(main)> client = Elasticsearch::Client.new log: true
 => #<Elasticsearch::Client ... >
@@ -96,9 +101,12 @@ ETHON: performed EASY effective_url=http://localhost:9200/ response_code=200 ret
    "minimum_index_compatibility_version"=>"5.0.0"},
  "tagline"=>"You Know, for Search"}
 ```
+<!-- markdownlint-restore -->
 
 And we get the ElasticSearch version number in Ruby as follows:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```ruby
 [1] pry(main)> Elasticsearch::Client.new.info.dig('version', 'number')
 ETHON: Libcurl initialized
@@ -106,13 +114,17 @@ ETHON: performed EASY effective_url=http://localhost:9200/ response_code=200 ret
 ETHON: performed EASY effective_url=http://localhost:9200/ response_code=200 return_code=ok total_time=0.00251
 => "6.8.0"
 ```
+<!-- markdownlint-restore -->
 
 We can call Ruby code directly on the command line.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```shell
 $ ruby -e "require 'elasticsearch'; puts Elasticsearch::Client.new.info.dig('version', 'number')"
 6.8.23
 ```
+<!-- markdownlint-restore -->
 
 There are many other ways.
 If I find them, I will complete this post.
