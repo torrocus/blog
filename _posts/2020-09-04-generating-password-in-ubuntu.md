@@ -48,13 +48,18 @@ passwords.
 Usually, one password is needed.
 Moreover, eight letters in a password are definitely not enough.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see how to install pwgen.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 Installing pwgen:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo apt install pwgen
 Reading package lists... Done
@@ -74,9 +79,11 @@ Unpacking pwgen (2.08-2build1) ...
 Setting up pwgen (2.08-2build1) ...
 Processing triggers for man-db (2.11.2-1) ...
 ```
+<!-- markdownlint-restore -->
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 To generate 1 password with 32 characters:
@@ -102,10 +109,13 @@ $ pwgen 64 1
 eem1Aighehupuaphie5eo5Apah3baataegahxiec3quenaeMieH6eiMaj9hai0Oh
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see a pwgen parameter list.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
 ```console
@@ -143,6 +153,7 @@ Options supported by pwgen:
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Regarding security, I think it's worth reading the [Anarcat post][anarcat-about-passwords].
@@ -152,13 +163,18 @@ The author strongly advises against using pwgen.
 
 APG means Automated Password Generator.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see how to install apg.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 Installing apg:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo apt install apg
 Reading package lists... Done
@@ -178,9 +194,11 @@ Unpacking apg (2.2.3.dfsg.1-5build2) ...
 Setting up apg (2.2.3.dfsg.1-5build2) ...
 Processing triggers for man-db (2.10.2-1) ...
 ```
+<!-- markdownlint-restore -->
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 `apg` uses two algorithms to generate passwords.
@@ -223,10 +241,13 @@ $ apg -a 1 -m 64 -n 1
 zB;W&)dg(_1!{eZ@wBxkOO/x7<:DU5k]u3TW\aTgs.nK$rT\5"FKYBy(WKrpR-qA
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see a apg parameter list.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
 ```console
@@ -266,21 +287,28 @@ apg   [-a algorithm] [-r file]
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 This solution is a bit outdated but still available in packages.
 
 ### diceware
 
-[Diceware][diceware] creates memorizable passphrases from wordlists and various sources of randomness.
+[Diceware][diceware] creates memorizable passphrases from wordlists
+and various sources of randomness.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see how to install diceware.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 Installing diceware:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo apt install diceware
 Reading package lists... Done
@@ -300,9 +328,11 @@ Unpacking diceware (0.9.6-1) ...
 Setting up diceware (0.9.6-1) ...
 Processing triggers for man-db (2.10.2-1) ...
 ```
+<!-- markdownlint-restore -->
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Running `diceware` generates a password that consists of 6 words (default).
@@ -336,10 +366,13 @@ Such passwords are probably easier to remember.
 Are these passwords more secure?
 This is a matter for discussion.
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see a diceware parameter list.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
 The diceware parameter list is as follows:
@@ -383,6 +416,7 @@ Wordlists are stored in /usr/lib/python2.7/dist-packages/diceware/wordlists
 
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 ## Password manager
