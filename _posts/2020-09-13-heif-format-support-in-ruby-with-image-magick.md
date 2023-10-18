@@ -52,13 +52,18 @@ sudo apt install -y \
          libx265-dev
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see the installation of these packages.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 In my case, I already had these packages on my system.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo apt install -y libde265-dev libjpeg-dev libopenjp2-7-dev librsvg2-dev libwebp-dev libx265-dev
 Reading package lists... Done
@@ -71,8 +76,10 @@ librsvg2-dev is already the newest version (2.40.20-2ubuntu0.2).
 libopenjp2-7-dev is already the newest version (2.3.0-2build0.18.04.1).
 libde265-dev is already the newest version (1.0.4-1~ppa1~ubuntu18.04.1).
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 ### HEIF format library
@@ -96,10 +103,13 @@ Call the script `autogen.sh`
 ./autogen.sh
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see the autogen.sh script call.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
 ```console
@@ -129,8 +139,10 @@ configure.ac:57: installing './missing'
 examples/Makefile.am: installing './depcomp'
 autoreconf: Leaving directory `.'
 ```
+
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Call the script `configure`
@@ -139,12 +151,17 @@ Call the script `configure`
 ./configure
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see the configure call.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ ./configure
 checking build system type... x86_64-pc-linux-gnu
@@ -311,8 +328,10 @@ config.status: creating config.h
 config.status: executing libtool commands
 config.status: executing depfiles commands
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Call `make` to compile & test HEIF library.
@@ -321,13 +340,18 @@ Call `make` to compile & test HEIF library.
 make
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see make process.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
-```
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
+```console
 $ make
 make  all-recursive
 make[1]: Entering directory '/home/torrocus/heif/libheif'
@@ -498,8 +522,10 @@ make[2]: Entering directory '/home/torrocus/heif/libheif'
 make[2]: Leaving directory '/home/torrocus/heif/libheif'
 make[1]: Leaving directory '/home/torrocus/heif/libheif'
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 The compiled libraries can be found in the `libheif/.libs` subfolder.
@@ -510,12 +536,17 @@ Install HEIF library in Linux system.
 sudo make install
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see the installation process.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo make install
 [sudo] password for torrocus:
@@ -656,8 +687,10 @@ make[2]: Nothing to be done for 'install-exec-am'.
 make[2]: Leaving directory '/home/torrocus/heif/libheif'
 make[1]: Leaving directory '/home/torrocus/heif/libheif'
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Exit the `libheif` folder.
@@ -698,12 +731,17 @@ Call the script `configure` for Image Magick.
 ./configure
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see ImageMagick configure call.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD010 MD013 -->
 ```console
 $ ./configure
 checking build system type... x86_64-pc-linux-gnu
@@ -1537,8 +1575,10 @@ Options used to compile and link:
 ==============================================================================
 
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Now it is worth stopping for a moment and checking
@@ -1553,10 +1593,13 @@ The DELEGATES option is displayed in the last lines.
 
 Here's what it looked like for me the first and second time.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```diff
 -  DELEGATES       = bzlib mpeg fontconfig freetype heic openjp2 png ps webp x xml zlib
 +  DELEGATES       = bzlib mpeg fontconfig freetype heic jng jpeg openjp2 png ps webp x xml zlib
 ```
+<!-- markdownlint-restore -->
 
 The correct configuration should include the line:
 
@@ -1576,14 +1619,20 @@ Just in case configure can be called with parameters.
   --with-webp=yes
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see configure call with parameters.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
+
 In my case, adding these parameters did not change anything,
 which makes me very happy.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD010 MD013 -->
 ```console
 $ ./configure \
 >   --with-heic=yes \
@@ -2424,10 +2473,11 @@ Options used to compile and link:
 ==============================================================================
 
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
-
 
 Call `make` to compile & test Image Magick.
 
@@ -2435,12 +2485,17 @@ Call `make` to compile & test Image Magick.
 make
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see make command in Image Magick.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ make
 make  all-am
@@ -2720,8 +2775,10 @@ cp -f MagickWand/MagickWand.pc MagickWand/MagickWand-7.Q16HDRI.pc
 cp -f Magick++/lib/Magick++.pc Magick++/lib/Magick++-7.Q16HDRI.pc
 make[1]: Leaving directory '/home/torrocus/heif/ImageMagick'
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 Here is the one line I missed on the first compilation.
@@ -2734,6 +2791,8 @@ The next step is to install ImageMagick on my system.
 Before installing it on my system,
 I already had the ImageMagick version installed from Debian packages.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ identify --version
 Version: ImageMagick 6.9.7-4 Q16 x86_64 20170114 http://www.imagemagick.org
@@ -2742,6 +2801,7 @@ License: http://www.imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP
 Delegates (built-in): bzlib djvu fftw fontconfig freetype jbig jng jpeg lcms lqr ltdl lzma openexr pangocairo png tiff wmf x xml zlib
 ```
+<!-- markdownlint-restore -->
 
 But don't worry.
 Two versions will be available after installation.
@@ -2752,12 +2812,17 @@ Install compiled Image Magick in Linux system.
 sudo make install
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see the installation of Image Magick 7.x.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo make install
 [sudo] password for torrocus:
@@ -3889,12 +3954,16 @@ done
 make[2]: Leaving directory '/home/torrocus/heif/ImageMagick'
 make[1]: Leaving directory '/home/torrocus/heif/ImageMagick'
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
+<!-- markdownlint-disable-next-line MD033 -->
 <br>
 
 After installation, I check the Image Magick version.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ identify --version
 Version: ImageMagick 7.0.10-29 Q16 x86_64 2020-09-13 https://imagemagick.org
@@ -3903,6 +3972,7 @@ License: https://imagemagick.org/script/license.php
 Features: Cipher DPC HDRI OpenMP(4.5)
 Delegates (built-in): bzlib fontconfig freetype heic jng jp2 jpeg ltdl png webp x xml zlib
 ```
+<!-- markdownlint-restore -->
 
 Access to the previous version is possible by adding suffix `-im6`.
 So the `identify` command from version 6.x is available from `identify-im6`.
@@ -3925,12 +3995,17 @@ of Image Magick.
 sudo make uninstall
 ```
 
+<!-- markdownlint-disable-next-line MD033 -->
 <details>
+<!-- markdownlint-disable-next-line MD033 -->
 <summary>
 Click here to see uninstall call.
 </summary>
+<!-- markdownlint-disable-next-line MD033 -->
 <p>
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo make uninstall
 [sudo] password for torrocus:
@@ -3964,6 +4039,7 @@ done
  ( cd '/usr/local/share/man/man1' && rm -f MagickCore-config.1 MagickWand-config.1 Magick++-config.1 ImageMagick.1 animate.1 compare.1 composite.1 conjure.1 convert.1 display.1 identify.1 import.1 magick.1 magick-script.1 mogrify.1 montage.1 stream.1 )
  ( cd '/usr/local/lib/pkgconfig' && rm -f ImageMagick.pc MagickCore.pc ImageMagick-7.Q16HDRI.pc MagickCore-7.Q16HDRI.pc MagickWand.pc MagickWand-7.Q16HDRI.pc Magick++.pc Magick++-7.Q16HDRI.pc )
 ```
+<!-- markdownlint-restore -->
 </p>
 </details>
 
