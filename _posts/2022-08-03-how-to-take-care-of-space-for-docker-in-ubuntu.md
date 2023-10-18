@@ -102,26 +102,31 @@ I decided to move Dockers there.
 
 I have created the folder.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo mkdir -p /larger-partition/new-path/docker
 ```
+<!-- markdownlint-restore -->
 
 I stopped all Dockers.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo systemctl stop docker.service
-Warning: Stopping docker.service, but it can still be activated by:
-  docker.socket
 $ sudo systemctl stop docker.socket
 ```
+<!-- markdownlint-restore -->
 
 Alternatively, you can also use `service` command.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo service docker stop
-Warning: Stopping docker.service, but it can still be activated by:
-  docker.socket
 ```
+<!-- markdownlint-restore -->
 
 In the `/lib/systemd/system/docker.service` file
 in the `ExecStart` line I added the `-g` option.
@@ -132,39 +137,57 @@ ExecStart=/usr/bin/dockerd -g /larger-partition/new-path/docker -H fd:// --conta
 
 BTW I tried the `--data-root` option before but it didn't work.
 
-It will be a good practice to copy the contents of the docker folder from the previous place.
+It will be a good practice to copy the contents of the docker folder
+from the previous place.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo rsync -aqxP /var/lib/docker/ /larger-partition/new-path/docker
 ```
+<!-- markdownlint-restore -->
 
 Then we need to reload the configuration.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo systemctl daemon-reload
 ```
+<!-- markdownlint-restore -->
 
 And restart Dockers.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo systemctl start docker
 ```
+<!-- markdownlint-restore -->
 
 It should also work:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD014 -->
 ```console
 $ sudo service docker start
 ```
+<!-- markdownlint-restore -->
 
 We can check if our configuration works in various ways.
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ ps aux | grep -i docker | grep -v grep
 root     29809  0.0  0.6 1126468 81192 ?       Ssl  08:00   0:00 /usr/bin/dockerd -g /larger-partition/new-path/docker -H fd:// --containerd=/run/containerd/containerd.sock
 ```
+<!-- markdownlint-restore -->
 
 Another way is:
 
+<!-- markdownlint-capture -->
+<!-- markdownlint-disable MD013 -->
 ```console
 $ sudo service docker status
 ● docker.service - Docker Application Container Engine
@@ -187,6 +210,7 @@ dockerd[29809]: time="2022-08-03T08:00:00.540864012+02:00" level=info msg="Daemo
 dockerd[29809]: time="2022-08-03T08:00:00.569335225+02:00" level=info msg="API listen on /var/run/docker.sock"
 systemd[1]: Started Docker Application Container Engine.
 ```
+<!-- markdownlint-restore -->
 
 If, despite the changes, you do not see the new path in the above commands,
 you can finally restart your computer.
