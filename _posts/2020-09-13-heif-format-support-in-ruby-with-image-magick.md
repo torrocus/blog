@@ -704,7 +704,7 @@ cd ..
 Download the Image Magick.
 
 ```console
-curl https://imagemagick.org/archive/ImageMagick.tar.gz -o ImageMagick.tar.gz
+curl https://download.imagemagick.org/ImageMagick/download/ImageMagick.tar.gz
 ```
 
 Unpack the ImageMagick.tar.gz archive.
