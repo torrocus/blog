@@ -6,6 +6,7 @@ excerpt: >
   # frozen_string_literal: true.
   Is it even possible?
 lang: en
+last_modified_at: 2023-12-14 15:00:00 +0200
 layout: post
 title: Can we use frozen_string_literal in Haml? WTF?
 ---
