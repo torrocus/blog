@@ -1,0 +1,19 @@
+{% if site.github_comments_repository and page.github_comments_issue_id  %}
+
+<div id="github-comments">
+  <h6>Comments</h6>
+  <div id="github-comments-list"></div>
+</div>
+
+<script src="{{ site.baseurl }}/assets/javascripts/github-comments.js"></script>
+
+<script type="text/javascript">
+  DoGithubComments (
+    "{{ site.github_comments_repository }}" ,
+    "{{ page.github_comments_issue_id }}"
+  );
+</script>
+
+<noscript>Please enable JavaScript to view comments.</noscript>
+
+{% endif %}
