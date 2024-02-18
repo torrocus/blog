@@ -13,6 +13,9 @@ title: XRechnung Validation with GitHub Actions
 based on the Universal Business Language (UBL).
 **UBL** provides a common structure for electronic business documents,
 facilitating efficient data exchange between systems.
+The goal of the XRechnung format is to standardize electronic invoices
+in Germany to facilitate their exchange between businesses
+and ensure compliance with legal and tax regulations.
 
 My task was to validate the accuracy of XML output files
 in the XRechnung format.
@@ -35,6 +38,8 @@ All of this complicates setting up the environment a bit.
 The validator won't work without the correct configuration.
 
 I've decided that the best solution will be running the validator on CI.
+Running the validator on CI has the benefit of skipping
+the need to configure the environment on local machines.
 GitHub Actions allows for inputs,
 so we can specify the name of the file being checked.
 In case of failure, reports are generated.
@@ -104,12 +109,18 @@ jobs:
 ```
 <!-- markdownlint-enable MD013 -->
 
-Here is an example of a validation step being executed.
+Here is an example of a validation step for a valid invoice.
 
 <!-- markdownlint-disable MD013 -->
 ```console
 $ java -jar $VALIDATOR_JAR_FILE -s scenarios.xml -r ${PWD} -h $INPUT_FILE
-
+  shell: /usr/bin/bash -e {0}
+  env:
+    INPUT_FILE: ./invoice-valid.xml
+    VALIDATOR_VERSION: 1.5.0
+    VALIDATOR_JAR_FILE: validationtool-1.5.0-standalone.jar
+    JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/21.0.2-13/x64
+    JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Zulu_jdk/21.0.2-13/x64
 KoSIT Validator version 1.5.0
 Loading scenarios from  file:///home/runner/work/xrechnung-validator-workflow/xrechnung-validator-workflow/scenarios.xml
 Using repository  file:///home/runner/work/xrechnung-validator-workflow/xrechnung-validator-workflow/
@@ -143,10 +154,62 @@ Acceptable:  1  Rejected:  0
 ```
 <!-- markdownlint-enable MD013 -->
 
+And also an example of a validation step
+for an invalid invoice (no issue date).
+
+<!-- markdownlint-disable MD013 -->
+```console
+$ java -jar $VALIDATOR_JAR_FILE -s scenarios.xml -r ${PWD} -h $INPUT_FILE
+  shell: /usr/bin/bash -e {0}
+  env:
+    INPUT_FILE: ./invoice-invalid.xml
+    VALIDATOR_VERSION: 1.5.0
+    VALIDATOR_JAR_FILE: validationtool-1.5.0-standalone.jar
+    JAVA_HOME: /opt/hostedtoolcache/Java_Zulu_jdk/21.0.2-13/x64
+    JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Zulu_jdk/21.0.2-13/x64
+KoSIT Validator version 1.5.0
+Loading scenarios from  file:///home/runner/work/xrechnung-validator-workflow/xrechnung-validator-workflow/scenarios.xml
+Using repository  file:///home/runner/work/xrechnung-validator-workflow/xrechnung-validator-workflow/
+
+Loaded "Validator Configuration XRechnung 3.0.1" by Coordination Office for IT Standards (KoSIT) from 2023-11-14
+The following scenarios are available:
+  * EN16931 XRechnung (UBL Invoice)
+  * EN16931 XRechnung Extension (UBL Invoice)
+  * EN16931 XRechnung (UBL CreditNote)
+  * EN16931 XRechnung (CII)
+  * EN16931 XRechnung Extension (CII)
+  * EN16931 (UBL Invoice)
+  * EN16931 (UBL CreditNote)
+  * EN16931 (CII)
+
+
+Processing of 1 objects started
+Processing of 1 objects completed in 156ms
+Results:
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+|File                                                        |Schema |Schematron|Acceptance|Error/Description                                           |
+|/home/runner/work/xrechnung-validator-workflow/xrechnung-...|   N   |    Y     |  REJECT  |cvc-datatype-valid.1.2.1: '' is not a valid value for 'date'|
+|idator-workflow/./invoice-invalid.xml                       |       |          |          |.;cvc-complex-type.2.2: Element 'cbc:IssueDate' must have no|
+|                                                            |       |          |          | element [children], and the value must be valid.           |
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Acceptable:  0  Rejected:  1
+
+
+##############################
+#     Validation failed!     #
+##############################
+Error: Process completed with exit code 1.
+```
+<!-- markdownlint-enable MD013 -->
+
 As you can see, the workflow isn't complicated.
 All the work is offloaded to CI.
 It's easier to make changes in the repository
 than at each developer's local environment.
+
+Implementing a validator workflow for the XRechnung format using GitHub Actions
+removes the need for manual environment setup on local machines,
+speeding up the validation process and improving team collaboration.
 
 That's it.
 I just wanted to
