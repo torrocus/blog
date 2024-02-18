@@ -11,10 +11,13 @@ title: XRechnung Validation with GitHub Actions
 
 **XRechnung** is a standard electronic invoicing format used in Germany,
 based on the Universal Business Language (UBL).
+🌐
 **UBL** provides a common structure for electronic business documents,
 facilitating efficient data exchange between systems.
 The goal of the XRechnung format is to standardize electronic invoices
-in Germany to facilitate their exchange between businesses
+in Germany
+🇩🇪
+to facilitate their exchange between businesses
 and ensure compliance with legal and tax regulations.
 
 My task was to validate the accuracy of XML output files
@@ -34,12 +37,14 @@ I needed to apply a
 
 The validator is written in Java.
 The released files are zip archives containing jar files.
+📦
 All of this complicates setting up the environment a bit.
 The validator won't work without the correct configuration.
 
 I've decided that the best solution will be running the validator on CI.
 Running the validator on CI has the benefit of skipping
 the need to configure the environment on local machines.
+💻
 GitHub Actions allows for inputs,
 so we can specify the name of the file being checked.
 In case of failure, reports are generated.
@@ -110,6 +115,7 @@ jobs:
 <!-- markdownlint-enable MD013 -->
 
 Here is an example of a validation step for a valid invoice.
+✔️
 
 <!-- markdownlint-disable MD013 -->
 ```console
@@ -156,6 +162,7 @@ Acceptable:  1  Rejected:  0
 
 And also an example of a validation step
 for an invalid invoice (no issue date).
+❌
 
 <!-- markdownlint-disable MD013 -->
 ```console
