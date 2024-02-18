@@ -149,4 +149,5 @@ It's easier to make changes in the repository
 than at each developer's local environment.
 
 That's it.
-I just wanted to share this.
+I just wanted to
+[share this](https://github.com/torrocus/xrechnung-validator-workflow).
