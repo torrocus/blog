@@ -96,13 +96,16 @@ and the company's registered address.
 > - [ ] Rozszerzony
 
 In this part, we specify the access scope within the company.
-Basic access allows performing most actions in the e-Tax Office.
+The "Podstawowy" (Basic) access allows performing most actions in the e-Tax Office.
 For accounting purposes, this access is sufficient.
-Extended access additionally allows granting
+The "Rozszerzony" (Extended) access additionally allows granting
 and revoking access to the organization's account.
-Therefore, for the first time,
-I personally recommend granting extended access to at least one person.
+Therefore, for the first user,
+I recommend granting extended access to ~~at least~~ exactly one person.
 In the future, this will facilitate managing access for other users.
+
+Attention!
+After consulting the Tax Office, **only 1 person** may have extended access.
 
 ### Part D
 
