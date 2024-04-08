@@ -156,3 +156,23 @@ Therefore, I cannot switch the account to the selected organization.
 
 When I reach that point, I will complete the article.
 🧑‍💻️
+
+----
+
+## Dictionary for Non-Polish Speakers
+
+- **KSeF**: Krajowy System e-Faktur.
+  🧾
+  National e-Invoice System in Poland.
+- **e-US**: e-Urząd Skarbowy, e-Tax Office.
+  🏢
+  Online platform for tax-related transactions.
+- **NIP**: Numer Identyfikacji Podatkowej, Tax Identification Number.
+  💼
+  NIP is used for tax identification purposes in Poland.
+- **PZ**: Profil Zaufany, Trusted Profile.
+  🔐
+  Secure electronic identity used for authentication.
+- **mObywatel**: mCitizen app.
+  📱
+  Mobile application for accessing government services in Poland.
